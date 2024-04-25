@@ -1,40 +1,53 @@
+import { Button } from "@material-tailwind/react";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar justify-between bg-base-100">
+      <div className="navbar justify-between mb-12">
         <div className="flex-">
           <a className="btn btn-ghost text-xl">daisyUI</a>
         </div>
         <div className="div">
-          <button className="btn">
-            <NavLink to="/">Home</NavLink>
-          </button>
-          <button className="btn">
-            <NavLink to="/">All Tourists Spot</NavLink>
-          </button>
-          <button className="btn">
-            <NavLink to="/">Add Tourists Spot</NavLink>
-          </button>
-          <button className="btn">
-            <NavLink to="/">My List</NavLink>
-          </button>
+          <NavLink to="/">
+            <Button color="blue" className="btn">
+              Home
+            </Button>
+          </NavLink>
+          <NavLink to="/">
+            <Button color="blue" className="btn">
+              All Tourists Spot
+            </Button>
+          </NavLink>
+          <NavLink to="/">
+            <Button color="blue" className="btn">
+              Add Tourists Spot
+            </Button>
+          </NavLink>
+          <NavLink to="/">
+            <Button color="blue" className="btn">
+              My List
+            </Button>
+          </NavLink>
         </div>
         <div className="flex-none">
-          <div>
+          <div className="mx-5">
             <NavLink to="/login">
-              <button className="btn">Login</button>
+              <Button color="green" className="btn mx-2">
+                Login
+              </Button>
             </NavLink>
             <NavLink to="/register">
-              <button className="btn">Register</button>
+              <Button color="green" className="btn">
+                Register
+              </Button>
             </NavLink>
           </div>
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end hidden">
             <div
               tabIndex={0}
-              role="button"
+              role="Button"
               className="btn btn-ghost btn-circle"
             >
               {/* <div className="indicator">
@@ -50,7 +63,7 @@ const Navbar = () => {
           <span className="font-bold text-lg">8 Items</span>
           <span className="text-info">Subtotal: $999</span>
           <div className="card-actions">
-            <button className="btn btn-primary btn-block">View cart</button>
+            <Button className="btn btn-primary btn-block">View cart</Button>
           </div>
         </div> */}
             </div>
@@ -58,7 +71,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
-              role="button"
+              role="Button"
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">

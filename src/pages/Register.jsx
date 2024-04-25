@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
+
+import app from "../firebase/firebase.config";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import Swal from "sweetalert2";
+
+// export const AuthContext = createContext(null);
+
+const auth = getAuth(app);
 const Register = () => {
+  //   const { createUser } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
@@ -11,9 +22,37 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    //     const { email, password, photo, name } = data;
-    //     console.log("email");
+    const { email, password, photo, name } = data;
     console.log(data);
+    const validatePassword = (password) => {
+      return (
+        password.length >= 6 && // Minimum length
+        /[A-Z]/.test(password) && // Contains uppercase letter
+        /[a-z]/.test(password)
+      );
+    };
+    const isValidPassword = validatePassword(password);
+    if (!isValidPassword) {
+      // Display error message to the user
+      Swal.fire({
+        title: "Error! Invalid Password",
+        text: "Do you want to continue",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+
+      return; // Prevent further execution if password is invalid
+    }
+    createUserWithEmailAndPassword(auth, email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+         Swal.fire({
+           title: "Successfully User Created ",
+           text: "Do you want to continue",
+           icon: "success",
+           confirmButtonText: "Ok",
+         });
+    });
   };
   return (
     <div>

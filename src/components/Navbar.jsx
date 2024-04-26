@@ -22,7 +22,7 @@ const Navbar = () => {
               All Tourists Spot
             </Button>
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/addtouristspot">
             <Button color="blue" className="btn">
               Add Tourists Spot
             </Button>

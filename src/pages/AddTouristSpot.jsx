@@ -9,6 +9,7 @@ import {
   Select,
 } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddTouristSpot = () => {
   const {
@@ -18,22 +19,49 @@ const AddTouristSpot = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const {
+      image,
+      touristSpot,
+      description,
+      countryName,
+      location,
+      averageCost,
+      travelTime,
+      totalVisitors,
+      userEmail,
+      userName,
+      season
+    } = data;
+
+    console.log(data);
+    fetch("http://localhost:5000/tourist",{
+     method:"POST",
+     headers:{
+          "content-type":"application/json"
+     },
+     body:JSON.stringify(data)
+    }).then(res=>res.json())
+    .then(data=>{
+     console.log(data)
+       if (data.insertedId) {
+          Swal.fire({
+            title: "Successfully Data Added ",
+            text: "Do you want to continue",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+       }
+    }).catch(err=>console.error(err))
+
+  };
   return (
     <div>
-      AddTouristSpot
-      <div>
-        <h1>Tourist spot</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
-          necessitatibus.
-        </p>
-      </div>
       {/* form */}
       <div>
         <Card color="transparent" shadow={false}>
           <Typography variant="h4" color="blue-gray">
-            Register
+            <h1>Tourist spot</h1>
           </Typography>
           <Typography color="gray" className="mt-1 font-normal">
             Nice to meet you! Enter your details to register.
@@ -56,7 +84,7 @@ const AddTouristSpot = () => {
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
-                    {...register("image", { required: true })}
+                    {...register("image", { required: false })}
                   />
                   {errors.name && <span>This field is required</span>}
                 </div>
@@ -71,7 +99,7 @@ const AddTouristSpot = () => {
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
-                    {...register("email", { required: true })}
+                    {...register("touristSpot", { required: true })}
                   />
                   {errors.email && <span>This field is required</span>}
                 </div>
@@ -108,7 +136,7 @@ const AddTouristSpot = () => {
                   {errors.location && <span>This field is required</span>}
                 </div>
               </div>
-
+              <div className="divider"></div>
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 short description
               </Typography>
@@ -135,17 +163,19 @@ const AddTouristSpot = () => {
             <Typography variant="h6" color="blue-gray" className="mb-3">
               Seasonality
             </Typography>
-            <select className="select select-info w-full max-w-xs">
-              <option disabled selected>
-                Seasonality
-              </option>
-              <option>Summer</option>
-              <option>Winter</option>
-              <option>Rainy</option>
-              <option>Spring</option>
-              <option>Autumn</option>
-              <option>Late Autumn</option>
+            <select
+              className="select select-info w-full max-w-xs"
+              {...register("season", { required: true })}
+            >
+              <option value="Summer">Summer</option>
+              <option value="Winter">Winter</option>
+              <option value="Rainy">Rainy</option>
+              <option value="Spring">Spring</option>
+              <option value="Autumn">Autumn</option>
+              <option value="LateAutumn">Late Autumn</option>
             </select>
+            <div className="divider"></div>
+
             <div className="main3 my-5 flex flex-col md:flex-row gap-6">
               <div>
                 <Typography variant="h6" color="blue-gray" className="mb-3">
@@ -153,12 +183,12 @@ const AddTouristSpot = () => {
                 </Typography>
                 <Input
                   size="lg"
-                  placeholder="travel_time "
+                  placeholder="travel_time"
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
-                  {...register("travelTime ", { required: true })}
+                  {...register("travelTime", { required: true })}
                 />
                 {errors.travelTime && <span>This field is required</span>}
               </div>
@@ -173,7 +203,7 @@ const AddTouristSpot = () => {
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
-                  {...register("totalVisitors ", { required: true })}
+                  {...register("totalVisitors", { required: true })}
                 />
                 {errors.totalvisitors && <span>This field is required</span>}
               </div>
@@ -211,9 +241,16 @@ const AddTouristSpot = () => {
                 {errors.userName && <span>This field is required</span>}
               </div>
             </div>
+            <div className="divider"></div>
 
             <div className="my-2">
-              <Button size="lg" className="my-5" type="submit" value="ADD">
+              <Button
+                size="lg"
+                className="my-5"
+                color="green"
+                type="submit"
+                value="ADD"
+              >
                 ADD
               </Button>
             </div>

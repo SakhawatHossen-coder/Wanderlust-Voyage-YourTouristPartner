@@ -17,7 +17,7 @@ const Navbar = () => {
               Home
             </Button>
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/alltouristspot">
             <Button color="blue" className="btn">
               All Tourists Spot
             </Button>

@@ -6,11 +6,13 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import { FaEye } from "react-icons/fa";
+import { FaClock, FaEye, FaUserFriends } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaLocationPin } from "react-icons/fa6";
+import { BiCoinStack, BiUser } from "react-icons/bi";
 
 const TouristCard = ({ tourist }) => {
-  const { image, touristSpot, averageCost, totalVisitors, travelTime } =
+  const { image, touristSpot, averageCost, totalVisitors, travelTime, _id } =
     tourist;
   const defImg =
     "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=600";
@@ -33,28 +35,44 @@ const TouristCard = ({ tourist }) => {
       </CardHeader>
       <CardBody>
         <Typography variant="h6" color="gray" className="mb-4 uppercase">
-          startups
+          <div className="flex gap-4 items-center">
+            Tourist Spot
+            <FaLocationPin />
+          </div>
+          : {touristSpot}
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-2">
-          Lyft launching cross-platform service this week
+        <Typography variant="h6" color="blue-gray" className="mb-2">
+          <div className="flex gap-4 items-center">
+            Travel Time
+            <FaClock />
+            {travelTime}
+          </div>
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-          Like so many organizations these days, Autodesk is a company in
-          transition. It was until recently a traditional boxed software company
-          selling licenses. Yet its own business model disruption is only part
-          of the story
+          <div className="flex gap-4 items-center">
+            Average Cost
+            <BiCoinStack />
+            {averageCost}
+          </div>
+        </Typography>
+        <Typography color="gray" className="mb-8 font-normal">
+          <div className="flex gap-4 items-center">
+            Total Visitors
+            <FaUserFriends />
+            {totalVisitors}
+          </div>
         </Typography>
         <a href="#" className="inline-block">
-          <Button
-            variant="filled"
-            color="yellow"
-            className="flex items-center gap-2"
-          >
-            <Link to="/">
+          <Link to={`/tourist/${_id}`}>
+            <Button
+              variant="filled"
+              color="yellow"
+              className="flex items-center gap-2"
+            >
               View Details
-            </Link>
               <FaEye />
-          </Button>
+            </Button>
+          </Link>
         </a>
       </CardBody>
     </Card>

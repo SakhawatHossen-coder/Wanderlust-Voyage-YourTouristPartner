@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 
 const auth = getAuth(app);
 const Register = () => {
-  //   const { createUser } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const {
     register,
@@ -43,15 +43,15 @@ const Register = () => {
 
       return; // Prevent further execution if password is invalid
     }
-    createUserWithEmailAndPassword(auth, email, password).then((result) => {
+    createUser(email, password).then((result) => {
       const user = result.user;
       console.log(user);
-         Swal.fire({
-           title: "Successfully User Created ",
-           text: "Do you want to continue",
-           icon: "success",
-           confirmButtonText: "Ok",
-         });
+      Swal.fire({
+        title: "Successfully User Created ",
+        text: "Do you want to continue",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
     });
   };
   return (

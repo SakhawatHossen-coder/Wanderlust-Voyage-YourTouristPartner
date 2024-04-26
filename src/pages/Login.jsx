@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Card,
   Input,
@@ -9,7 +9,33 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaTwitter } from "react-icons/fa";
+import { AuthContext } from "../providers/AuthProviders";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 const Login = () => {
+  const { logIn } = useContext(AuthContext);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    console.log(data);
+    logIn(email, password).then((result) => {
+      Swal.fire({
+        title: "Log In Successfully",
+        text: "Do you want to continue",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+      console.log(result.user);
+    });
+  };
+
   return (
     <div>
       <Card color="transparent" shadow={false}>
@@ -19,7 +45,10 @@ const Login = () => {
         <Typography color="gray" className="mt-1 font-normal">
           Nice to meet you! Enter your details to register.
         </Typography>
-        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg sm:w-96">
+        <form
+          className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg sm:w-96"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Your Email
@@ -31,7 +60,9 @@ const Login = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+              {...register("email", { required: true })}
             />
+            {errors.email && <span>This field is required</span>}
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Your Password
             </Typography>
@@ -43,10 +74,18 @@ const Login = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+              {...register("password", { required: true })}
             />
+            {errors.password && <span>This field is required</span>}
           </div>
 
-          <Button className="mt-6" fullWidth>
+          <Button
+            size="lg"
+            className="mt-5"
+            type="submit"
+            value="Log In"
+            fullWidth
+          >
             Log In
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">

@@ -9,11 +9,18 @@ import {
 import { FaClock, FaEye, FaUserFriends } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaLocationPin } from "react-icons/fa6";
-import { BiCoinStack, BiUser } from "react-icons/bi";
+import { BiCoinStack, BiFlag, BiUser } from "react-icons/bi";
 
 const TouristCard = ({ tourist }) => {
-  const { image, touristSpot, averageCost, totalVisitors, travelTime, _id } =
-    tourist;
+  const {
+    image,
+    touristSpot,
+    averageCost,
+    totalVisitors,
+    travelTime,
+    _id,
+    season,
+  } = tourist;
   const defImg =
     "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=600";
   return (
@@ -24,12 +31,13 @@ const TouristCard = ({ tourist }) => {
         className="m-0 w-2/5 shrink-0 rounded-r-none"
       >
         <img
+          key={_id}
           src={
             tourist?.image
               ? image
               : "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=600"
           }
-          alt="card-image"
+          alt={touristSpot}
           className="h-full w-full object-cover"
         />
       </CardHeader>
@@ -37,9 +45,8 @@ const TouristCard = ({ tourist }) => {
         <Typography variant="h6" color="gray" className="mb-4 uppercase">
           <div className="flex gap-4 items-center">
             Tourist Spot
-            <FaLocationPin />
+            <FaLocationPin />: {touristSpot}
           </div>
-          : {touristSpot}
         </Typography>
         <Typography variant="h6" color="blue-gray" className="mb-2">
           <div className="flex gap-4 items-center">
@@ -62,18 +69,23 @@ const TouristCard = ({ tourist }) => {
             {totalVisitors}
           </div>
         </Typography>
-        <a href="#" className="inline-block">
-          <Link to={`/tourist/${_id}`}>
-            <Button
-              variant="filled"
-              color="yellow"
-              className="flex items-center gap-2"
-            >
-              View Details
-              <FaEye />
-            </Button>
-          </Link>
-        </a>
+        <Typography color="gray" className="mb-8 font-normal">
+          <div className="flex gap-4 items-center">
+            Seasonality:
+            {season}
+          </div>
+        </Typography>
+
+        <Link to={`/tourist/${_id}`} className="inline-block">
+          <Button
+            variant="filled"
+            color="yellow"
+            className="flex items-center gap-2"
+          >
+            View Details
+            <FaEye />
+          </Button>
+        </Link>
       </CardBody>
     </Card>
   );

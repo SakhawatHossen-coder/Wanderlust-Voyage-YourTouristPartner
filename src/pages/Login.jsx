@@ -12,6 +12,7 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 import { AuthContext } from "../providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import SocilaLogin from "../components/SocilaLogin";
 const Login = () => {
   const { logIn } = useContext(AuthContext);
 
@@ -110,43 +111,7 @@ const Login = () => {
             </Link>
           </Typography>
           {/*  */}
-          <div className="flex flex-col items-center gap-4">
-            <Button
-              size="lg"
-              variant="outlined"
-              color="blue-gray"
-              className="flex items-center gap-3"
-            >
-              <img
-                src="https://docs.material-tailwind.com/icons/google.svg"
-                alt="metamask"
-                className="h-6 w-6"
-              />
-              Continue with Google
-            </Button>
-            <Button
-              size="lg"
-              variant="outlined"
-              color="blue-gray"
-              className="flex items-center gap-3"
-            >
-              <IconButton>
-                <FaGithub size={24} />
-              </IconButton>
-              Continue with GitHub
-            </Button>
-            <Button
-              size="lg"
-              variant="outlined"
-              color="blue-gray"
-              className="flex items-center gap-3"
-            >
-              <IconButton>
-                <FaTwitter size={24} />
-              </IconButton>
-              Continue with Twitter
-            </Button>
-          </div>
+          <SocilaLogin />
         </form>
       </Card>
     </div>

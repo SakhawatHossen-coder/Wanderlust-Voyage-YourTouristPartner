@@ -25,15 +25,24 @@ const Login = () => {
   const onSubmit = (data) => {
     const { email, password } = data;
     console.log(data);
-    logIn(email, password).then((result) => {
-      Swal.fire({
-        title: "Log In Successfully",
-        text: "Do you want to continue",
-        icon: "success",
-        confirmButtonText: "Ok",
+    logIn(email, password)
+      .then((result) => {
+        Swal.fire({
+          title: "Log In Successfully",
+          text: "Do you want to continue",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        console.log(result.user);
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Try Again! Invalid Credentials",
+          text: "Do you want to continue",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
       });
-      console.log(result.user);
-    });
   };
 
   return (

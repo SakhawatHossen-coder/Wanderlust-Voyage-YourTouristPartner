@@ -7,7 +7,7 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { AuthContext } from "../providers/AuthProviders";
 import { useForm } from "react-hook-form";
@@ -21,19 +21,25 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
 
   const onSubmit = (data) => {
     const { email, password } = data;
     console.log(data);
     logIn(email, password)
       .then((result) => {
-        Swal.fire({
-          title: "Log In Successfully",
-          text: "Do you want to continue",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-        console.log(result.user);
+        if (result.user) {
+          Swal.fire({
+            title: "Log In Successfully",
+            text: "Do you want to continue",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+          console.log(result.user);
+          navigate(from);
+        }
       })
       .catch((err) => {
         Swal.fire({

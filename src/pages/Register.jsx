@@ -86,6 +86,7 @@ const Register = () => {
                 }}
                 {...register("name", { required: true })}
               />
+              {errors.name && <span>This field is required</span>}
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Your Email
               </Typography>
@@ -98,6 +99,7 @@ const Register = () => {
                 }}
                 {...register("email", { required: true })}
               />
+              {errors.email && <span>This field is required</span>}
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Photo URL
               </Typography>
@@ -110,6 +112,7 @@ const Register = () => {
                 }}
                 {...register("photo", { required: true })}
               />
+              {errors.photo && <span>This field is required</span>}
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Your Password
               </Typography>
@@ -123,6 +126,7 @@ const Register = () => {
                 }}
                 {...register("password", { required: true })}
               />
+              {errors.password && <span>This field is required</span>}
             </div>
 
             <Button size="lg" className="mt-5" type="submit" value="Register">

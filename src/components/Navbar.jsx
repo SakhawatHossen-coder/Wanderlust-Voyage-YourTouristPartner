@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   return (
     <div>
       <div className="navbar justify-between mb-12">
@@ -34,7 +34,7 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className="flex-none">
-          <div className="mx-5">
+          {/* <div className="mx-5">
             <NavLink to="/login">
               <Button color="green" className="btn mx-2">
                 Login
@@ -45,7 +45,7 @@ const Navbar = () => {
                 Register
               </Button>
             </NavLink>
-          </div>
+          </div> */}
           <div className="dropdown dropdown-end hidden">
             <div
               tabIndex={0}
@@ -70,39 +70,43 @@ const Navbar = () => {
         </div> */}
             </div>
           </div>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="Button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src={
-                    user?.photoURL ||
-                    "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  }
-                />
+          <div className="end">
+            {user ? (
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="Button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={
+                        user?.photoURL ||
+                        "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      }
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Button>{user?.displayName || "User not found"}</Button>
+                  </li>
+                  <li>
+                    <Button onClick={logOut}>
+                      <a>Logout</a>
+                    </Button>
+                  </li>
+                </ul>
               </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
+            ) : (
+              <NavLink to="/login">
+                <Button color="green">Login</Button>
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

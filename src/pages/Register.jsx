@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
 
 import app from "../firebase/firebase.config";
@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 
 const auth = getAuth(app);
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
 
   const {
     register,
@@ -20,6 +20,7 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const { email, password, photo, name } = data;
@@ -44,13 +45,16 @@ const Register = () => {
       return; // Prevent further execution if password is invalid
     }
     createUser(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-      Swal.fire({
-        title: "Successfully User Created ",
-        text: "Do you want to continue",
-        icon: "success",
-        confirmButtonText: "Ok",
+      updateUserProfile(name, photo).then(() => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "Successfully User Created ",
+          text: "Do you want to continue",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        navigate("/login");
       });
     });
   };

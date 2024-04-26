@@ -1,8 +1,10 @@
 import { Button } from "@material-tailwind/react";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <div className="navbar justify-between mb-12">
@@ -77,7 +79,10 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src={
+                    user?.photoURL ||
+                    "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  }
                 />
               </div>
             </div>

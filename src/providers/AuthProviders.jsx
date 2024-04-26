@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateCurrentUser, updateProfile } from "firebase/auth";
 import { createContext } from "react";
 import app from "../firebase/firebase.config";
 import Login from "../pages/Login";
@@ -30,6 +30,12 @@ const [user,setUser]=useState(null)
   const logOut =()=>{
     setLoading(true);
     return signOut(auth)
+  }
+  const updateUserProfile=(name,photo)=>{
+return updateProfile(auth.currentUser,{
+  displayName:name,
+  photoURL:photo
+})
   }
 //social login
 function googleLogin(){
@@ -65,7 +71,8 @@ setLoading(false);
     githubLogin,
     googleLogin,
     twitterLogin,
-    loading
+    loading,
+    updateUserProfile
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

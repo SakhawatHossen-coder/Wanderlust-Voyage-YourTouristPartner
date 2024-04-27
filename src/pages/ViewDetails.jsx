@@ -8,28 +8,41 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-
+import { FaClock, FaEye, FaUserFriends } from "react-icons/fa";
+import { FaLocationPin } from "react-icons/fa6";
+import { BiCoinStack, BiFlag, BiUser } from "react-icons/bi";
 const ViewDetails = () => {
   const loadedTourists = useLoaderData();
-//   console.log(loadedTourists);
- const { image, touristSpot, averageCost, totalVisitors, travelTime, _id } =
-   loadedTourists;
+  //   console.log(loadedTourists);
+  const {
+    image,
+    touristSpot,
+    averageCost,
+    totalVisitors,
+    travelTime,
+    _id,
+    location,
+    countryName,
+    season,
+  } = loadedTourists;
   return (
     <Card className="mt-6 w-96">
       <CardHeader color="blue-gray" className="relative h-56">
-        <img
-          src={image}
-          alt="card-image"
-        />
+        <img src={image} alt="card-image" />
       </CardHeader>
       <CardBody>
         <Typography variant="h5" color="blue-gray" className="mb-2">
-          UI/UX Review Check
+          <div className="flex gap-4 items-center">
+            Tourist Spot
+            <FaLocationPin />: {touristSpot}
+          </div>
         </Typography>
         <Typography>
-          The place is close to Barceloneta Beach and bus stop just 2 min by
-          walk and near to &quot;Naviglio&quot; where you can enjoy the main
-          night life in Barcelona.
+          <div className="flex gap-4 items-center">
+            Travel Time
+            <FaClock />
+            {travelTime}
+          </div>
         </Typography>
       </CardBody>
       <CardFooter className="pt-0">

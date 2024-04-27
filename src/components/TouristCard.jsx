@@ -6,8 +6,8 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import { FaClock, FaEye, FaUserFriends } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaClock, FaEye, FaUserFriends } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 import { BiCoinStack, BiFlag, BiUser } from "react-icons/bi";
 

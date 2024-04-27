@@ -7,7 +7,7 @@ const PrivateRoutes = ({children}) => {
      const {user,loading}=useContext(AuthContext);
      const location=useLocation();
      if(loading){
-          return <Spinner color="amber" />;
+          return <Spinner className='w-full mx-auto' color="amber" />;
      }
        if (!user) {
          return <Navigate to="/login" state={location?.pathname || "/"} />;

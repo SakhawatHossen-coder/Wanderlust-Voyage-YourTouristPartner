@@ -64,7 +64,7 @@ const TouristCard = ({ tourist }) => {
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
           <div className="flex gap-4 items-center">
-            Total Visitors
+            Total Visitors Per Year
             <FaUserFriends />
             {totalVisitors}
           </div>
@@ -76,7 +76,7 @@ const TouristCard = ({ tourist }) => {
           </div>
         </Typography>
 
-        <Link to={`/tourist/${_id}`} className="inline-block">
+        <Link to={`/tourist/${_id}`} className="flex justify-center items-center">
           <Button
             variant="filled"
             color="yellow"

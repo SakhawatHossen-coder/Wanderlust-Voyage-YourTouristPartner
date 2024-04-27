@@ -8,10 +8,12 @@ import AddTouristSpot from "../pages/AddTouristSpot";
 import PrivateRoutes from "./PrivateRoutes";
 import SpotPage from "../pages/SpotPage";
 import ViewDetails from "../pages/ViewDetails";
+import { ErroPage } from "../pages/ErroPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement:<ErroPage/>,
     children: [
       {
         path: "/",
@@ -28,9 +30,9 @@ const router = createBrowserRouter([
       {
         path: "/addtouristspot",
         element: (
-          // <PrivateRoutes>
-          <AddTouristSpot />
-          // </PrivateRoutes>
+          <PrivateRoutes>
+            <AddTouristSpot />
+          </PrivateRoutes>
         ),
       },
       {
@@ -41,9 +43,9 @@ const router = createBrowserRouter([
       {
         path: "/tourist/:id",
         element: (
-          // <PrivateRoutes>
-          <ViewDetails />
-          // </PrivateRoutes>
+          <PrivateRoutes>
+            <ViewDetails />
+          </PrivateRoutes>
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/tourist/${params.id}`),

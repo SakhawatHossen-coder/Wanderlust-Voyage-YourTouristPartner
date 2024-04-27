@@ -14,9 +14,11 @@ const Newsletter = () => {
           <div>
             <h1 className="text-5xl font-bold">Sign Up for Our Newsletter</h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Dreaming of a European adventure? Look no further! We're whisking
+              you away on a journey through some of the continent's most
+              captivating destinations. From the historic charm of Rome to the
+              breathtaking beauty of the Swiss Alps, Europe offers something for
+              everyone.
             </p>
             <div>
               <NewsletterForm />

@@ -1,4 +1,4 @@
-import { Button } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
@@ -93,10 +93,10 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Button>{user?.displayName || "User not found"}</Button>
+                    <Typography>{user?.displayName || "User not found"}</Typography>
                   </li>
                   <li>
-                    <Button onClick={logOut}>
+                    <Button color="blue" variant="outlined" onClick={logOut}>
                       <a>Logout</a>
                     </Button>
                   </li>

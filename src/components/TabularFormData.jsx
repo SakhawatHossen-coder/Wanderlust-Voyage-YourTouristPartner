@@ -6,8 +6,6 @@ import { Button } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 
 const TabularFormData = () => {
-  //   console.log(items);
-  //   const { touristSpot, countryName, travelTime, season } = items;
   const { user } = useContext(AuthContext);
   const [items, setItems] = useState([]);
 
@@ -16,19 +14,12 @@ const TabularFormData = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        //    console.log(typeof items);
         setItems(data);
       });
   }, [user]);
 
   //
   const handleDelete = (_id) => {
-    // fetch(`http://localhost:5000/tourist/email/${user?._id}`,{
-    //   method:"DELETE",
-    // })
-    // .then(res=>res.json())
-    // .then(data=>{})
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -80,7 +71,7 @@ const TabularFormData = () => {
                 <td>{item.season}</td>
                 <td>{item.travelTime}</td>
                 <td>
-                  <Link to="/">
+                  <Link to={`/tourist/update/${item._id}`}>
                     <Button
                       size="sm"
                       color="green"

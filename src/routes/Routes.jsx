@@ -10,6 +10,7 @@ import SpotPage from "../pages/SpotPage";
 import ViewDetails from "../pages/ViewDetails";
 import { ErroPage } from "../pages/ErroPage";
 import MyListPage from "../pages/MyListPage";
+import UpdatePage from "../pages/UpdatePage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,6 +56,16 @@ const router = createBrowserRouter([
       {
         path: "/mylistpage",
         element: <MyListPage />,
+      },
+      {
+        path: "/tourist/update/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdatePage />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/tourist/${params.id}`),
       },
     ],
   },

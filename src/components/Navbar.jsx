@@ -9,26 +9,26 @@ const Navbar = () => {
     <div>
       <div className="navbar justify-between mb-12">
         <div className="flex-">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl jost">Wanderlust Voyage</a>
         </div>
-        <div className="div">
+        <div className="div pop">
           <NavLink to="/">
-            <Button color="blue" className="btn">
+            <Button color="blue" className="btn pop">
               Home
             </Button>
           </NavLink>
           <NavLink to="/alltouristspot">
-            <Button color="blue" className="btn">
+            <Button color="blue" className="btn pop">
               All Tourists Spot
             </Button>
           </NavLink>
           <NavLink to="/addtouristspot">
-            <Button color="blue" className="btn">
+            <Button color="blue" className="btn pop">
               Add Tourists Spot
             </Button>
           </NavLink>
           <NavLink to="/mylistpage">
-            <Button color="blue" className="btn">
+            <Button color="blue" className="btn pop">
               My List
             </Button>
           </NavLink>
@@ -93,18 +93,20 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Typography>{user?.displayName || "User not found"}</Typography>
+                    <Typography className="pop">
+                      {user?.displayName || "User not found"}
+                    </Typography>
                   </li>
                   <li>
                     <Button color="blue" variant="outlined" onClick={logOut}>
-                      <a>Logout</a>
+                      <a className="pop">Logout</a>
                     </Button>
                   </li>
                 </ul>
               </div>
             ) : (
               <NavLink to="/login">
-                <Button color="green">Login</Button>
+                <Button color="green pop">Login</Button>
               </NavLink>
             )}
           </div>

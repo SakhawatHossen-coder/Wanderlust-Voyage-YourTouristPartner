@@ -9,22 +9,24 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
+import { Fade } from "react-awesome-reveal";
 const CountrySectionCard = ({ p }) => {
   const { _id, image, countryName, description } = p;
   return (
     <div>
-      <Link to={`/tourist/countries/${countryName}`}>
-        <Card className="mt-6 w-96 mx-auto my-8">
-          <CardHeader color="blue-gray" className="relative h-56">
-            <img key={_id} src={image} alt={countryName} />
-          </CardHeader>
-          <CardBody>
-            <Typography variant="h5" color="blue-gray" className="mb-2">
-              Country Name :{countryName}
-            </Typography>
-            <Typography>Description: {description}</Typography>
-          </CardBody>
-          {/* <CardFooter className="pt-0">
+      <Fade>
+        <Link to={`/tourist/countries/${countryName}`}>
+          <Card className="mt-6 w-96 mx-auto my-8">
+            <CardHeader color="blue-gray" className="relative h-56">
+              <img key={_id} src={image} alt={countryName} />
+            </CardHeader>
+            <CardBody>
+              <Typography variant="h5" color="blue-gray" className="mb-2">
+                Country Name :{countryName}
+              </Typography>
+              <Typography>Description: {description}</Typography>
+            </CardBody>
+            {/* <CardFooter className="pt-0">
             <Link
               //   to={`/tourist/${tourist?._id}`}
               className="flex justify-center items-center"
@@ -35,8 +37,9 @@ const CountrySectionCard = ({ p }) => {
               </Button>
             </Link>
           </CardFooter> */}
-        </Card>
-      </Link>
+          </Card>
+        </Link>
+      </Fade>
     </div>
   );
 };

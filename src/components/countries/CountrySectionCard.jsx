@@ -20,11 +20,11 @@ const CountrySectionCard = ({ p }) => {
           </CardHeader>
           <CardBody>
             <Typography variant="h5" color="blue-gray" className="mb-2">
-              {countryName}
+              Country Name :{countryName}
             </Typography>
-            <Typography>{description}</Typography>
+            <Typography>Description: {description}</Typography>
           </CardBody>
-          <CardFooter className="pt-0">
+          {/* <CardFooter className="pt-0">
             <Link
               //   to={`/tourist/${tourist?._id}`}
               className="flex justify-center items-center"
@@ -34,7 +34,7 @@ const CountrySectionCard = ({ p }) => {
                 <FaEye />
               </Button>
             </Link>
-          </CardFooter>
+          </CardFooter> */}
         </Card>
       </Link>
     </div>

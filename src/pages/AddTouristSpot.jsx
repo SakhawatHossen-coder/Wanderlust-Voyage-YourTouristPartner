@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import {
   Card,
@@ -10,16 +10,21 @@ import {
 } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProviders";
 
 const AddTouristSpot = () => {
+  const { user } = useContext(AuthContext);
+  // console.log(user?.displayName);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-
+  
   const onSubmit = (data) => {
+    const Email = user.email;
     const {
       image,
       touristSpot,
@@ -31,29 +36,31 @@ const AddTouristSpot = () => {
       totalVisitors,
       userEmail,
       userName,
-      season
+      season,
     } = data;
+    const newData={data,Email}
 
-    console.log(data);
-    fetch("http://localhost:5000/tourist",{
-     method:"POST",
-     headers:{
-          "content-type":"application/json"
-     },
-     body:JSON.stringify(data)
-    }).then(res=>res.json())
-    .then(data=>{
-     console.log(data)
-       if (data.insertedId) {
+    console.log(newData);
+    fetch("http://localhost:5000/tourist", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
           Swal.fire({
             title: "Successfully Data Added ",
             text: "Do you want to continue",
             icon: "success",
             confirmButtonText: "Ok",
           });
-       }
-    }).catch(err=>console.error(err))
-
+        }
+      })
+      .catch((err) => console.error(err));
   };
   return (
     <div>
@@ -109,15 +116,28 @@ const AddTouristSpot = () => {
                   <Typography variant="h6" color="blue-gray" className="mb-3">
                     Country Name
                   </Typography>
-                  <Input
-                    size="lg"
-                    placeholder="country_Name"
-                    className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                    labelProps={{
-                      className: "before:content-none after:content-none",
-                    }}
-                    {...register("countryName", { required: true })}
-                  />
+                  {/*
+                  // <Input
+                  //   size="lg"
+                  //   placeholder="country_Name"
+                  //   className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                  //   labelProps={{
+                  //     className: "before:content-none after:content-none",
+                  //   }}
+                  //   {...register("countryName", { required: true })}
+                  // /> 
+                  */}
+                  <select
+                    className="select select-info w-full max-w-xs"
+                    {...register("season", { required: true })}
+                  >
+                    <option value="France">France</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Spain">Spain</option>
+                    <option value="England">England</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Switzerland">Switzerland</option>
+                  </select>
                   {errors.countryName && <span>This field is required</span>}
                 </div>
                 <div>
@@ -167,6 +187,7 @@ const AddTouristSpot = () => {
               className="select select-info w-full max-w-xs"
               {...register("season", { required: true })}
             >
+              <option disabled>Season</option>
               <option value="Summer">Summer</option>
               <option value="Winter">Winter</option>
               <option value="Rainy">Rainy</option>
@@ -221,24 +242,26 @@ const AddTouristSpot = () => {
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
-                  {...register("userEmail", { required: true })}
+                  defaultValue={user?.email || "user has no email"}
+                  disabled
+                  // {...register("userEmail", { required: false })}
                 />
-                {errors.userEmail && <span>This field is required</span>}
               </div>
               <div>
                 <Typography variant="h6" color="blue-gray" className="mb-3">
                   User Name
                 </Typography>
                 <Input
+                  disabled
                   size="lg"
                   placeholder="User Name"
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
-                  {...register("userName", { required: true })}
+                  defaultValue={user?.displayName}
+                  // {...register("userName", { required: false })}
                 />
-                {errors.userName && <span>This field is required</span>}
               </div>
             </div>
             <div className="divider"></div>

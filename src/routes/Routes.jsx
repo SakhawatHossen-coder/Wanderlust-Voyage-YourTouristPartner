@@ -9,15 +9,17 @@ import PrivateRoutes from "./PrivateRoutes";
 import SpotPage from "../pages/SpotPage";
 import ViewDetails from "../pages/ViewDetails";
 import { ErroPage } from "../pages/ErroPage";
+import MyListPage from "../pages/MyListPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement:<ErroPage/>,
+    errorElement: <ErroPage />,
     children: [
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("http://localhost:5000/tourist"),
       },
       {
         path: "/login",
@@ -50,6 +52,11 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/tourist/${params.id}`),
       },
+      {
+        path:"/mylistpage",
+        element:<MyListPage/>,
+       
+      }
     ],
   },
 ]);

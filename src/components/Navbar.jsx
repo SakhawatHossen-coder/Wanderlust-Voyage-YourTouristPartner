@@ -27,7 +27,7 @@ const Navbar = () => {
               Add Tourists Spot
             </Button>
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/mylistpage">
             <Button color="blue" className="btn">
               My List
             </Button>

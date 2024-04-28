@@ -1,96 +1,100 @@
-import React from 'react'
+import React from "react";
 
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+import { FaCoins, FaEye, FaTimesCircle, FaUserFriends } from "react-icons/fa";
+import { FaClock } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
-
-export function TouristSpots() {
+export function TouristSpots({ touristData }) {
+  // const {
+  //   image,
+  //   touristSpot,
+  //   averageCost,
+  //   totalVisitors,
+  //   travelTime,
+  //   _id,
+  //   season,
+  // } = tourist;
+  console.log(touristData);
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-      <div className="grid gap-4">
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center "
-            src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-            alt="gallery-photo"
-          />
-        </div>
+    <>
+      <Typography variant="h3" className="mt-8">
+        Unveiling the World's Wonders: Explore Top Tourist Spots!
+      </Typography>
+      <Typography variant="paragraph" className="my-2">
+        Embark on a captivating journey across the globe with our curated list
+        of must-visit tourist destinations! From historical marvels to
+        breathtaking natural wonders, we've got something to ignite the
+        wanderlust in everyone.
+      </Typography>
+      <div className="grid grid-cols-2">
+        {touristData.slice(0, 6).map((tourist, idx) => (
+          <Card className="mt-6 w-96 mx-auto my-12" key={idx}>
+            <CardHeader color="blue-gray" className="relative h-56">
+              <img
+                src={
+                  tourist?.image ||
+                  "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=600"
+                }
+                alt={tourist?.touristSpot}
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography variant="h5" color="blue-gray" className="mb-2">
+                touristSpot: {tourist?.touristSpot}
+              </Typography>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                <div className="flex gap-2 items-center">
+                  Average Cost
+                  <FaCoins />
+                  {tourist?.averageCost}
+                </div>
+              </Typography>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                <div className="flex gap-4 items-center">
+                  Total Visitors Per Year
+                  <FaUserFriends />
+                  {tourist?.totalVisitors}
+                </div>
+              </Typography>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                <div className="flex gap-4 items-center">
+                  Travel Time
+                  <FaClock />
+                  {tourist?.travelTime}
+                </div>
+               
+              </Typography>
+              <Typography variant="h6" color="blue-gray" className="mb-2">
+                Season:
+                {tourist?.season}
+              </Typography>
+              <Typography>
+               {tourist?.description}
+              </Typography>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Link
+                to={`/tourist/${tourist?._id}`}
+                className="flex justify-center items-center"
+              >
+                <Button className="flex items-center gap-2">
+                  View Details
+                  <FaEye />
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
-      <div className="grid gap-4">
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center "
-            src="https://docs.material-tailwind.com/img/team-3.jpg"
-            alt="gallery-photo"
-          />
-        </div>
-      </div>
-      <div className="grid gap-4">
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center "
-            src="https://docs.material-tailwind.com/img/team-3.jpg"
-            alt="gallery-photo"
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-      </div>
-      <div className="grid gap-4">
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg object-cover object-center"
-            src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"
-            alt="gallery-photo"
-          />
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 export default TouristSpots;

@@ -1,5 +1,7 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
+import { MdMail } from "react-icons/md";
+import { BiPhone } from "react-icons/bi";
 
 const LINKS = [
   {
@@ -23,9 +25,21 @@ const Footer = () => {
     <footer className="relative w-full mt-10">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className="mb-6">
-            Material Tailwind
+          <Typography variant="h5" className="mb-6 jost">
+            Wanderlust Voyage
+            <Typography variant="paragraph" className="my-6 pop">
+              <span>
+                <MdMail/>
+              </span>
+              Email:contact@gmail.com
+            </Typography>
+            <Typography>
+              <BiPhone/>
+              Phone:
+            0012345-68777
+            </Typography>
           </Typography>
+
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
@@ -42,7 +56,7 @@ const Footer = () => {
                       as="a"
                       href="#"
                       color="gray"
-                      className="py-1.5 font-normal transition-colors hover:text-blue-gray-900"
+                      className="py-1.5 pop font-normal transition-colors hover:text-blue-gray-900"
                     >
                       {link}
                     </Typography>
@@ -58,8 +72,10 @@ const Footer = () => {
             className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
           >
             &copy; {currentYear}{" "}
-            <a href="https://material-tailwind.com/">Material Tailwind</a>. All
-            Rights Reserved.
+            <a href="/" className="jost">
+              Wanderlust Voyage
+            </a>
+            . All Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
             <Typography

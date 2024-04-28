@@ -1,4 +1,5 @@
 import React from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 import {
   Card,
@@ -22,18 +23,32 @@ export function TouristSpots({ touristData }) {
   //   _id,
   //   season,
   // } = tourist;
-  console.log(touristData);
+  // console.log(touristData);
   return (
     <>
-      <Typography variant="h3" className="mt-8">
-        Unveiling the World's Wonders: Explore Top Tourist Spots!
-      </Typography>
-      <Typography variant="paragraph" className="my-2">
-        Embark on a captivating journey across the globe with our curated list
-        of must-visit tourist destinations! From historical marvels to
-        breathtaking natural wonders, we've got something to ignite the
-        wanderlust in everyone.
-      </Typography>
+      <div className="w-1/2 mx-auto">
+        <Typography variant="h3" className="mt-8 ">
+          <Typewriter
+            loop={5}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            words={[
+              "Unveiling ",
+              " the World's Wonders:",
+              "Explore Top Tourist Spots!",
+            ]}
+          ></Typewriter>
+        </Typography>
+        <Typography variant="paragraph" className="my-2">
+          Embark on a captivating journey across the globe with our curated list
+          of must-visit tourist destinations! From historical marvels to
+          breathtaking natural wonders, we've got something to ignite the
+          wanderlust in everyone.
+        </Typography>
+      </div>
       <div className="grid grid-cols-2">
         {touristData.slice(0, 6).map((tourist, idx) => (
           <Card className="mt-6 w-96 mx-auto my-12" key={idx}>
@@ -70,15 +85,12 @@ export function TouristSpots({ touristData }) {
                   <FaClock />
                   {tourist?.travelTime}
                 </div>
-               
               </Typography>
               <Typography variant="h6" color="blue-gray" className="mb-2">
                 Season:
                 {tourist?.season}
               </Typography>
-              <Typography>
-               {tourist?.description}
-              </Typography>
+              <Typography>{tourist?.description}</Typography>
             </CardBody>
             <CardFooter className="pt-0">
               <Link

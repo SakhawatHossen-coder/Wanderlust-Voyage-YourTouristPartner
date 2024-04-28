@@ -11,7 +11,7 @@ const Home = () => {
   const touristData=useLoaderData()
   return (
     <div>
-      {/* <Slider /> */}
+      <Slider />
       <TouristSpots touristData={touristData}/>
       <div className="divider"></div>
       <CountrySection/>

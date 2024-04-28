@@ -1,65 +1,106 @@
 import React from "react";
-import { Carousel } from "@material-tailwind/react";
-
+import { Carousel, Typography } from "@material-tailwind/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+// Import Swiper styles
+import "swiper/css";
+import { Typewriter } from "react-simple-typewriter";
 const Slider = () => {
+  let img1 =
+    "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=600";
+  let img2 =
+    "https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&w=600";
+  let img3 =
+    "https://images.pexels.com/photos/1796736/pexels-photo-1796736.jpeg?auto=compress&cs=tinysrgb&w=600";
+  let img4 =
+    "https://images.pexels.com/photos/967292/pexels-photo-967292.jpeg?auto=compress&cs=tinysrgb&w=600";
   return (
     <div>
-      <Carousel
-        className="rounded-xl"
-        navigation={({ setActiveIndex, activeIndex, length }) => (
-          <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-            {new Array(length).fill("").map((_, i) => (
-              <span
-                key={i}
-                className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                  activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
-                }`}
-                onClick={() => setActiveIndex(i)}
-              />
-            ))}
-          </div>
-        )}
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
       >
-        <img
-          src="https://images.pexels.com/photos/1850619/pexels-photo-1850619.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="image 1"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="image 2"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="https://images.pexels.com/photos/4913464/pexels-photo-4913464.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="image 3"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="image 4"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="image 5"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="https://images.pexels.com/photos/7556483/pexels-photo-7556483.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="image 6"
-          className="h-full w-full object-cover"
-        />
-      </Carousel>
+        <SwiperSlide>
+          <Typography variant="h4" className="">
+            <Typewriter
+              loop={5}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+              words={["Where  ", "  will your next ", " adventure take you?"]}
+            ></Typewriter>
+          </Typography>
+          <img src={img1} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Typography variant="h4" className="">
+            <Typewriter
+              loop={5}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+              words={[" Discover the world", "  one hidden gem at a time "]}
+            ></Typewriter>
+          </Typography>
+
+          <img src={img2} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Typography variant="h4" className="">
+            <Typewriter
+              loop={5}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+              words={[
+                " Unleash your wanderlust.",
+                "      Explore the globe with us",
+              ]}
+            ></Typewriter>
+          </Typography>
+          <img src={img3} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Typography variant="h4" className="">
+            <Typewriter
+              loop={5}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+              words={["  Travel creates memories", "    that last a lifetime"]}
+            ></Typewriter>
+          </Typography>
+
+          <img src={img4} alt="" />
+        </SwiperSlide>
+        ...
+      </Swiper>
     </div>
   );
 };
 
- export default Slider;
-
+export default Slider;
 
 // import { Carousel, Typography, Button } from "@material-tailwind/react";
- /*
+/*
 export function CarouselWithContent() {
   return (
     <Carousel className="rounded-xl">

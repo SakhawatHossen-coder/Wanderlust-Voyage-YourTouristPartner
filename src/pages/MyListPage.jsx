@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProviders";
+import TableData from "../components/TableData";
 
 const MyListPage = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +15,12 @@ const MyListPage = () => {
       });
   }, [user]);
 
-  return <div>MyListPage</div>;
+  return <div>MyListPage
+
+    <div>
+      <TableData/>
+    </div>
+  </div>;
 };
 
 export default MyListPage;

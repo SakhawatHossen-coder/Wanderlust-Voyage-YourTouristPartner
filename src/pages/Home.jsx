@@ -5,6 +5,7 @@ import Newsletter from "../components/Newsletter";
 import Faq from "../components/Faq";
 import TouristSpots from "../components/TouristSpots";
 import { useLoaderData } from "react-router-dom";
+import CountrySection from "../components/countries/CountrySection";
 // import Navbar from "../"
 const Home = () => {
   const touristData=useLoaderData()
@@ -12,6 +13,7 @@ const Home = () => {
     <div>
       {/* <Slider /> */}
       <TouristSpots touristData={touristData}/>
+      <CountrySection/>
     <Newsletter/>
     <Faq/>
     </div>

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { Card, Typography } from "@material-tailwind/react";
+import { AuthContext } from "../providers/AuthProviders";
 
-const TABLE_HEAD = ["Name", "Job", "Employed", ""];
+const TABLE_HEAD = [
+  "Spot Name",
+  "Country",
+  "Travel Time",
+  "Seasonality",
+  "",
+  "",
+];
 
 const TABLE_ROWS = [
   {
@@ -31,8 +39,47 @@ const TABLE_ROWS = [
     date: "04/10/21",
   },
 ];
+//
 
 const TableData = () => {
+  const { user } = useContext(AuthContext);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/tourist/email/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setItems(data);
+      });
+  }, [user]);
+  //   const [list, setList] = useState([]);
+  //   const { user } = useContext(AuthContext);
+  //   useEffect(() => {
+  //     console.log(user?.email);
+  //     //   fetch(`http://localhost:5000/tourist/email/${user?.email}`)
+  //     fetch(`http://localhost:5000/tourist/email/sakhawat32@gmail.com`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setList(data);
+  //         console.log(data);
+  //       });
+  //   }, []);
+  console.log(items);
+  const AB = [items];
+  const {
+    touristSpot,
+    description,
+    countryName,
+    location,
+    averageCost,
+    travelTime,
+    totalVisitors,
+    userEmail,
+    userName,
+    season,
+  } = items;
+
   return (
     <div>
       <Card className="h-full w-full overflow-scroll">
@@ -56,15 +103,15 @@ const TableData = () => {
             </tr>
           </thead>
           <tbody>
-            {TABLE_ROWS.map(({ name, job, date }, index) => (
-              <tr key={name} className="even:bg-blue-gray-50/50">
+            {AB?.map(({ touristSpot, countryName, travelTime }, index) => (
+              <tr key={index} className="even:bg-blue-gray-50/50">
                 <td className="p-4">
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {name}
+                    {touristSpot}
                   </Typography>
                 </td>
                 <td className="p-4">
@@ -73,7 +120,7 @@ const TableData = () => {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {job}
+                    {countryName}
                   </Typography>
                 </td>
                 <td className="p-4">
@@ -82,7 +129,7 @@ const TableData = () => {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {date}
+                    {travelTime}
                   </Typography>
                 </td>
                 <td className="p-4">
@@ -94,6 +141,15 @@ const TableData = () => {
                     className="font-medium"
                   >
                     Edit
+                  </Typography>
+                  <Typography
+                    as="a"
+                    href="#"
+                    variant="small"
+                    color="blue-gray"
+                    className="font-medium"
+                  >
+                    Delete
                   </Typography>
                 </td>
               </tr>

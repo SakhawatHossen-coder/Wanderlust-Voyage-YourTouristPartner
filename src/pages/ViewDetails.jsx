@@ -24,26 +24,30 @@ const ViewDetails = () => {
     location,
     countryName,
     season,
-    userName
+    userName,
   } = loadedTourists;
   return (
     <>
-        {/* <h1 className="text-black">{userName}: You have added this</h1> */}
+      {/* <h1 className="text-black">{userName}: You have added this</h1> */}
       <Card className="mt-6 w-1/2 mx-auto shadow-xl">
         <CardHeader color="blue-gray" className="relative h-56">
           <img src={image} key={_id} alt="card-image" />
         </CardHeader>
         <CardBody>
-          <Typography variant="h6" color="blue-gray" className="mb-2">
-            <div className="flex gap-2 items-center">
+          <div className="">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="mb-2 flex gap-2 items-center"
+            >
               Tourist Spot
               <span>
                 <BiLocationPlus />
               </span>
               {touristSpot}
-            </div>
-            <br />
-          </Typography>
+              <br />
+            </Typography>
+          </div>
           <Typography>
             <div className="flex gap-4 items-center">
               Travel Time

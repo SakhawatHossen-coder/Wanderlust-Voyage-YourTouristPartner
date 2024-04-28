@@ -55,8 +55,15 @@ const Register = () => {
           confirmButtonText: "Ok",
         });
         navigate("/login");
-      });
-    });
+      })
+    }).catch(err=>{
+         Swal.fire({
+           title: "Invalid email/password ",
+           text: "Do you want to continue",
+           icon: "error",
+           confirmButtonText: "Ok",
+         });
+    })
   };
   return (
     <div>

@@ -11,6 +11,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProviders";
+import FormAdd from "../components/FormAdd";
 
 const AddTouristSpot = () => {
   const { user } = useContext(AuthContext);
@@ -22,7 +23,7 @@ const AddTouristSpot = () => {
     watch,
     formState: { errors },
   } = useForm();
-  
+
   const onSubmit = (data) => {
     const Email = user.email;
     const {
@@ -38,7 +39,7 @@ const AddTouristSpot = () => {
       userName,
       season,
     } = data;
-    const newData={data,Email}
+    const newData = { data };
 
     console.log(newData);
     fetch("http://localhost:5000/tourist", {
@@ -64,8 +65,9 @@ const AddTouristSpot = () => {
   };
   return (
     <div>
+      <FormAdd />
       {/* form */}
-      <div>
+      <div className="hidden">
         <Card color="transparent" shadow={false}>
           <Typography variant="h4" color="blue-gray">
             <h1>Tourist spot</h1>
@@ -243,8 +245,7 @@ const AddTouristSpot = () => {
                     className: "before:content-none after:content-none",
                   }}
                   defaultValue={user?.email || "user has no email"}
-                  disabled
-                  // {...register("userEmail", { required: false })}
+                  {...register("userEmail", { required: true })}
                 />
               </div>
               <div>
@@ -252,7 +253,6 @@ const AddTouristSpot = () => {
                   User Name
                 </Typography>
                 <Input
-                  disabled
                   size="lg"
                   placeholder="User Name"
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900"

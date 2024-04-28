@@ -53,10 +53,9 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/tourist/${params.id}`),
       },
       {
-        path:"/mylistpage",
-        element:<MyListPage/>,
-       
-      }
+        path: "/mylistpage",
+        element: <MyListPage />,
+      },
     ],
   },
 ]);

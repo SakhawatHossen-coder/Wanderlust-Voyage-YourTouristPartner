@@ -1,24 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProviders";
 import TableData from "../components/TableData";
+import TabularFormData from "../components/TabularFormData";
+import { useLoaderData } from "react-router-dom";
 
 const MyListPage = () => {
   const { user } = useContext(AuthContext);
-  const [items, setItems] = useState([]);
+  // const loadedData=useLoaderData()
+  // const [items, setItems] = useState(loadedData);
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/tourist/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setItems(data);
-      });
-  }, [user]);
 
   return <div>MyListPage
 
+    <div className="hidden">
+      <TableData />
+    </div>
     <div>
-      <TableData/>
+      <TabularFormData />
     </div>
   </div>;
 };

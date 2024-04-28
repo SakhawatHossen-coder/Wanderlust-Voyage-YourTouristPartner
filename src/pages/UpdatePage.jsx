@@ -74,21 +74,23 @@ const UpdatePage = () => {
 
   return (
     <div>
-      UpdatePage
+  
       <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
-          Sign Up
-        </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
-          Nice to meet you! Enter your details to register.
-        </Typography>
+        <div className="w-1/2 mx-auto">
+          <Typography variant="h4" color="blue-gray">
+            Update Your Information:
+          </Typography>
+          <Typography color="gray" className="mt-1 font-normal">
+            Update your preferred travel styles
+          </Typography>
+        </div>
         <form
-          className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+          className="mt-8 mb-2 w-80 mx-auto max-w-screen-lg sm:w-96"
           onSubmit={handleUpdateForm}
         >
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              image
+              Image
             </Typography>
             <Input
               size="lg"
@@ -101,7 +103,7 @@ const UpdatePage = () => {
               defaultValue={image}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              touristSpot
+              Tourist Spot
             </Typography>
             <Input
               size="lg"
@@ -114,7 +116,7 @@ const UpdatePage = () => {
               defaultValue={touristSpot}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              description
+              Description
             </Typography>
             <Input
               size="lg"
@@ -127,7 +129,7 @@ const UpdatePage = () => {
               defaultValue={description}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              countryName
+              CountryName
             </Typography>
             <Input
               size="lg"
@@ -139,6 +141,8 @@ const UpdatePage = () => {
               }}
               defaultValue={countryName}
             />
+
+            
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               location
             </Typography>

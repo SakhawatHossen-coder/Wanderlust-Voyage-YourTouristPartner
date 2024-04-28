@@ -55,12 +55,15 @@ const Login = () => {
   return (
     <div>
       <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
-          Log IN
-        </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
-          Nice to meet you! Enter your details to register.
-        </Typography>
+        <div className="w-1/2 mx-auto">
+          <Typography variant="h4" color="blue-gray">
+            Log IN
+          </Typography>
+          <Typography color="gray" className="mt-1 font-normal">
+            Login to access your personalized travel dashboard, saved
+            destinations, and travel plan ning tools.
+          </Typography>
+        </div>
         <form
           className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg sm:w-96"
           onSubmit={handleSubmit(onSubmit)}

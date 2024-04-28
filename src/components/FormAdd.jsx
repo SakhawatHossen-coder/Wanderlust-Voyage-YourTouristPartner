@@ -81,6 +81,7 @@ const FormAdd = () => {
             Image
           </Typography>
           <Input
+            required
             size="lg"
             name="photo"
             placeholder="photo URL"
@@ -93,6 +94,7 @@ const FormAdd = () => {
             Tourist Spot
           </Typography>
           <Input
+            required
             size="lg"
             name="touristSpot"
             placeholder="touristSpot"
@@ -144,6 +146,7 @@ const FormAdd = () => {
             Location
           </Typography>
           <Input
+            required
             size="lg"
             name="location"
             placeholder="location"
@@ -156,6 +159,7 @@ const FormAdd = () => {
             Average Cost
           </Typography>
           <Input
+            required
             size="lg"
             name="averageCost"
             placeholder="averageCost"

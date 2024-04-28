@@ -10,7 +10,7 @@ const MyListPage = () => {
   // const [items, setItems] = useState(loadedData);
 
 
-  return <div>MyListPage
+  return <div>
 
     <div className="hidden">
       <TableData />

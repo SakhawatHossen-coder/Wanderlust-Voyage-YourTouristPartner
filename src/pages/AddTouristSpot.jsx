@@ -64,7 +64,7 @@ const AddTouristSpot = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <div>
+    <div className="w-1/2 mx-auto">
       <FormAdd />
       {/* form */}
       <div className="hidden">

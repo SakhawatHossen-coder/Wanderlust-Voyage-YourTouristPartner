@@ -16,8 +16,8 @@ const CountrySection = () => {
   }, []);
 
   return (
-    <div>
-      <Typography variant="h2">Country Section</Typography>
+    <div className="w-full mx-auto">
+      <Typography variant="h1" className="pop font-bold text-center my-8">Country Section</Typography>
       {/* {items.length} */}
       <div className="grid grid-cols-2 gap-5">
         {lists.map((p, idx) => (

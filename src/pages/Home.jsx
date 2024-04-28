@@ -13,6 +13,7 @@ const Home = () => {
     <div>
       {/* <Slider /> */}
       <TouristSpots touristData={touristData}/>
+      <div className="divider"></div>
       <CountrySection/>
     <Newsletter/>
     <Faq/>

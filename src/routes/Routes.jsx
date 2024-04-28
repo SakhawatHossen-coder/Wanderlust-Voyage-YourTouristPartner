@@ -11,6 +11,7 @@ import ViewDetails from "../pages/ViewDetails";
 import { ErroPage } from "../pages/ErroPage";
 import MyListPage from "../pages/MyListPage";
 import UpdatePage from "../pages/UpdatePage";
+import CountryCard from "../components/countries/CountryCard";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/tourist/${params.id}`),
+      },
+      {
+        path: "/tourist/countries/:countryName",
+        element: <CountryCard />,
+        loader: ({params}) => fetch(`http://localhost:5000/tourist/countries/${params.countryName}`),
       },
     ],
   },

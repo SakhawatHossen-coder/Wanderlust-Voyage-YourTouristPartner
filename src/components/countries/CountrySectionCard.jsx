@@ -13,28 +13,30 @@ const CountrySectionCard = ({ p }) => {
   const { _id, image, countryName, description } = p;
   return (
     <div>
-      <Card className="mt-6 w-96">
-        <CardHeader color="blue-gray" className="relative h-56">
-          <img key={_id} src={image} alt={countryName} />
-        </CardHeader>
-        <CardBody>
-          <Typography variant="h5" color="blue-gray" className="mb-2">
-            {countryName}
-          </Typography>
-          <Typography>{description}</Typography>
-        </CardBody>
-        <CardFooter className="pt-0">
-          <Link
-            //   to={`/tourist/${tourist?._id}`}
-            className="flex justify-center items-center"
-          >
-            <Button className="flex items-center gap-2">
-              View Details
-              <FaEye />
-            </Button>
-          </Link>
-        </CardFooter>
-      </Card>
+      <Link to={`/tourist/countries/${countryName}`}>
+        <Card className="mt-6 w-96 mx-auto my-8">
+          <CardHeader color="blue-gray" className="relative h-56">
+            <img key={_id} src={image} alt={countryName} />
+          </CardHeader>
+          <CardBody>
+            <Typography variant="h5" color="blue-gray" className="mb-2">
+              {countryName}
+            </Typography>
+            <Typography>{description}</Typography>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Link
+              //   to={`/tourist/${tourist?._id}`}
+              className="flex justify-center items-center"
+            >
+              <Button className="flex items-center gap-2">
+                View Details
+                <FaEye />
+              </Button>
+            </Link>
+          </CardFooter>
+        </Card>
+      </Link>
     </div>
   );
 };

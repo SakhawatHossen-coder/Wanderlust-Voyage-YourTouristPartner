@@ -19,11 +19,12 @@ const Slider = () => {
   let img4 =
     "https://images.pexels.com/photos/967292/pexels-photo-967292.jpeg?auto=compress&cs=tinysrgb&w=600";
   return (
-    <div>
+    <div className="-z-10">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
         slidesPerView={3}
+        className="-z-10"
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
@@ -31,7 +32,7 @@ const Slider = () => {
         onSlideChange={() => console.log("slide change")}
       >
         <SwiperSlide>
-          <Typography variant="h4" className="">
+          <Typography variant="h4" className="hidden lg:flex">
             <Typewriter
               loop={5}
               cursor
@@ -45,7 +46,7 @@ const Slider = () => {
           <img src={img1} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <Typography variant="h4" className="">
+          <Typography variant="h4" className="hidden lg:flex">
             <Typewriter
               loop={5}
               cursor
@@ -60,7 +61,7 @@ const Slider = () => {
           <img src={img2} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <Typography variant="h4" className="">
+          <Typography variant="h4" className="hidden lg:flex">
             <Typewriter
               loop={5}
               cursor
@@ -77,7 +78,7 @@ const Slider = () => {
           <img src={img3} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <Typography variant="h4" className="">
+          <Typography variant="h4" className="hidden lg:flex">
             <Typewriter
               loop={5}
               cursor

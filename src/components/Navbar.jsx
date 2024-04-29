@@ -9,12 +9,95 @@ const Navbar = () => {
   const [theme, setTheme] = useState();
   return (
     <div>
-      <div className="navbar justify-between mb-12">
-        <div className="flex-">
+      <div className="navbar-start justify-between mb-12">
+        <div className="flex">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <NavLink to="/">
+                  <Button color="blue" className="btn pop">
+                    Home
+                  </Button>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/alltouristspot">
+                  <Button color="blue" className="btn pop">
+                    All Tourists Spot
+                  </Button>
+                </NavLink>
+              </li>
+              <li>
+                {" "}
+                <NavLink to="/addtouristspot">
+                  <Button color="blue" className="btn pop">
+                    Add Tourists Spot
+                  </Button>
+                </NavLink>
+              </li>
+              <li>
+                {" "}
+                <NavLink to="/mylistpage">
+                  <Button color="blue" className="btn pop">
+                    My List
+                  </Button>
+                </NavLink>
+              </li>
+            </ul>
+          </div>
           <a className="btn btn-ghost text-xl jost">Wanderlust Voyage</a>
         </div>
-        <div className="div pop">
-          <NavLink to="/">
+        <div className="div navbar-center hidden lg:flex pop">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <NavLink to="/">
+                <Button color="blue" className="btn pop">
+                  Home
+                </Button>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/alltouristspot">
+                <Button color="blue" className="btn pop">
+                  All Tourists Spot
+                </Button>
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink to="/addtouristspot">
+                <Button color="blue" className="btn pop">
+                  Add Tourists Spot
+                </Button>
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink to="/mylistpage">
+                <Button color="blue" className="btn pop">
+                  My List
+                </Button>
+              </NavLink>
+            </li>
+          </ul>
+          {/* <NavLink to="/">
             <Button color="blue" className="btn pop">
               Home
             </Button>
@@ -33,7 +116,7 @@ const Navbar = () => {
             <Button color="blue" className="btn pop">
               My List
             </Button>
-          </NavLink>
+          </NavLink> */}
         </div>
         <div>
           <ThemeToggle />
@@ -76,7 +159,7 @@ const Navbar = () => {
         </div> */}
             </div>
           </div>
-          <div className="end">
+          <div className="navbar-end">
             {user ? (
               <div className="dropdown dropdown-end">
                 <div

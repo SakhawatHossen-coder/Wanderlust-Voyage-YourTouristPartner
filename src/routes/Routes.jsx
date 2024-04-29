@@ -56,7 +56,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/mylistpage",
-        element: <MyListPage />,
+        element: (
+          <PrivateRoutes>
+            <MyListPage />,
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/tourist/update/:id",
@@ -71,7 +75,10 @@ const router = createBrowserRouter([
       {
         path: "/tourist/countries/:countryName",
         element: <CountryCard />,
-        loader: ({params}) => fetch(`http://localhost:5000/tourist/countries/${params.countryName}`),
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/tourist/countries/${params.countryName}`
+          ),
       },
     ],
   },

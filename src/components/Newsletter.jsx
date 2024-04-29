@@ -9,15 +9,15 @@ const Newsletter = () => {
   const onChange = ({ target }) => setEmail(target.value);
   return (
     <Fade>
-      <div className="my-10">
+      <div className="my-5 md:my-8">
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col lg:flex-row-reverse">
-            <img src={newsletter} className="max-w-sm rounded-lg shadow-2xl" />
+            <img src={newsletter} className="max-w-sm w-72 md:w-full rounded-lg shadow-2xl" />
             <div>
-              <h1 className="text-5xl font-bold pop">
+              <h1 className="text-2xl text-center md:text-5xl font-bold pop">
                 Sign Up for Our Newsletter
               </h1>
-              <p className="py-6 pop font-normal">
+              <p className="py-6 pop text-base font-normal text-center">
                 Dreaming of a European adventure? Look no further! We're
                 whisking you away on a journey through some of the continent's
                 most captivating destinations. From the historic charm of Rome

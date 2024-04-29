@@ -6,7 +6,7 @@ const NewsletterForm = () => {
      const onChange = ({ target }) => setEmail(target.value);
   return (
     <div>
-       <div className="relative flex w-full max-w-[24rem]">
+       <div className="relative flex justify-center items-center w-full max-w-[24rem]">
       <Input
         type="email"
         label="Email Address"

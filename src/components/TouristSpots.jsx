@@ -15,20 +15,11 @@ import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 
 export function TouristSpots({ touristData }) {
-  // const {
-  //   image,
-  //   touristSpot,
-  //   averageCost,
-  //   totalVisitors,
-  //   travelTime,
-  //   _id,
-  //   season,
-  // } = tourist;
-  // console.log(touristData);
+ 
   return (
     <>
-      <div className="w-1/2 mx-auto">
-        <Typography variant="h3" className="mt-8 ">
+      <div className="md:w-1/2 mx-auto container">
+        <Typography variant="h3" className="mt-8 text-xl md:text-4xl">
           <Typewriter
             loop={5}
             cursor
@@ -43,14 +34,14 @@ export function TouristSpots({ touristData }) {
             ]}
           ></Typewriter>
         </Typography>
-        <Typography variant="paragraph" className="my-2">
+        <Typography variant="paragraph" className="my-2 text-base md:text-xl">
           Embark on a captivating journey across the globe with our curated list
           of must-visit tourist destinations! From historical marvels to
           breathtaking natural wonders, we've got something to ignite the
           wanderlust in everyone.
         </Typography>
       </div>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         {touristData.slice(0, 6).map((tourist, idx) => (
           <Fade>
             <Card className="mt-6 w-96 mx-auto my-12" key={idx}>
@@ -65,7 +56,7 @@ export function TouristSpots({ touristData }) {
               </CardHeader>
               <CardBody>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
-                  touristSpot: {tourist?.touristSpot}
+                  Tourist Spot: {tourist?.touristSpot}
                 </Typography>
                 <Typography variant="h6" color="blue-gray" className="mb-2">
                   <div className="flex gap-2 items-center">

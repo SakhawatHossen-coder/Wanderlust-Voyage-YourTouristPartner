@@ -32,4 +32,8 @@ Sub-categories (Current):
 
 Getting Started:
 
+##  Packages use in this project:
+    1. React-simple-typewriter
+    2. React Awesome reveal
+
 This is a basic outline for the Wanderlust Voyage website.  Content will be continuously added and features will be developed to create a dynamic and informative travel platform.

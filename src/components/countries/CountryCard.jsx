@@ -29,6 +29,11 @@ const CountryCard = () => {
               </Typography>
               <Typography variant="h6" color="gray" className="mb-4 uppercase">
                 <div className="flex gap-4 items-center">
+                  Country Name : {i.countryName}
+                </div>
+              </Typography>
+              <Typography variant="h6" color="gray" className="mb-4 uppercase">
+                <div className="flex gap-4 items-center">
                   Location : {i.location}
                 </div>
               </Typography>

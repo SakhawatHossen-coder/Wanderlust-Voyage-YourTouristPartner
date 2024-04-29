@@ -44,10 +44,9 @@ const TouristCard = ({ tourist }) => {
           />
         </CardHeader>
         <CardBody>
-          <Typography variant="small" color="gray" className="mb-4 uppercase">
+          <Typography variant="h6" color="gray" className="mb-4 uppercase">
             <div className="flex gap-2 justify-center items-center">
-              Tourist Spot
-              <BiLocationPlus size={40} />: {touristSpot}
+              Tourist Spot : {touristSpot}
             </div>
           </Typography>
           <Typography color="blue-gray" className="mb-2">
@@ -72,10 +71,7 @@ const TouristCard = ({ tourist }) => {
             </div>
           </Typography>
           <Typography color="gray" className="mb-8 font-normal">
-            <div className="flex gap-2 items-center">
-              Seasonality : 
-              {season}
-            </div>
+            <div className="flex gap-2 items-center">Seasonality :{season}</div>
           </Typography>
 
           <Link

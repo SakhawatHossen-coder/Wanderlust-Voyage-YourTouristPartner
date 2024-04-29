@@ -125,18 +125,7 @@ const FormAdd = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          {/* <Typography variant="h6" color="blue-gray" className="-mb-3">
-            Country Name
-          </Typography>
-          <Input
-            size="lg"
-            name="countryName"
-            placeholder="countryName"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
-          /> */}
+
           <Typography variant="h6" color="blue-gray" className="-mb-3">
             Country Name
           </Typography>
@@ -209,16 +198,7 @@ const FormAdd = () => {
           <Typography variant="h6" color="blue-gray" className="-mb-3">
             Season
           </Typography>
-          {/* <Input
-            type="text"
-            name="season"
-            size="lg"
-            placeholder="season"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
-          /> */}
+
           <select name="season" className="select select-info w-full max-w-xs">
             <option disabled>Season</option>
             <option value="Summer">Summer</option>
@@ -267,16 +247,3 @@ const FormAdd = () => {
 };
 
 export default FormAdd;
-
-// / *  *  <select
-//               className="select select-info w-full max-w-xs"
-//               {...register("season", { required: true })}
-//             >
-//               <option disabled>Season</option>
-//               <option value="Summer">Summer</option>
-//               <option value="Winter">Winter</option>
-//               <option value="Rainy">Rainy</option>
-//               <option value="Spring">Spring</option>
-//               <option value="Autumn">Autumn</option>
-//               <option value="LateAutumn">Late Autumn</option>
-//             </select> **/

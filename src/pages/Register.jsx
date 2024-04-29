@@ -44,37 +44,43 @@ const Register = () => {
 
       return; // Prevent further execution if password is invalid
     }
-    createUser(email, password).then((result) => {
-      updateUserProfile(name, photo).then(() => {
-        const user = result.user;
-        console.log(user);
+    createUser(email, password)
+      .then((result) => {
+        updateUserProfile(name, photo).then(() => {
+          const user = result.user;
+          console.log(user);
+          Swal.fire({
+            title: "Successfully User Created ",
+            text: "Do you want to continue",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+          navigate("/login");
+        });
+      })
+      .catch((err) => {
         Swal.fire({
-          title: "Successfully User Created ",
+          title: "Invalid email/password ",
           text: "Do you want to continue",
-          icon: "success",
+          icon: "error",
           confirmButtonText: "Ok",
         });
-        navigate("/login");
-      })
-    }).catch(err=>{
-         Swal.fire({
-           title: "Invalid email/password ",
-           text: "Do you want to continue",
-           icon: "error",
-           confirmButtonText: "Ok",
-         });
-    })
+      });
   };
   return (
     <div>
-      Register
       <div>
         <Card color="transparent" shadow={false}>
-          <Typography variant="h4" color="blue-gray">
-            Register
+          <Typography
+            className="text-center text-xl md:text-3xl mt-8"
+            variant="h4"
+            color="blue-gray"
+          >
+            Register & Join the Wanderlust Community!
           </Typography>
-          <Typography color="gray" className="mt-1 font-normal">
-            Nice to meet you! Enter your details to register.
+          <Typography color="gray" className="mt-2 text-center font-normal">
+            Create your free account to unlock the full potential of your travel
+            planning.
           </Typography>
           <form
             className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg sm:w-96"
@@ -135,10 +141,18 @@ const Register = () => {
               />
               {errors.password && <span>This field is required</span>}
             </div>
-
+            <p className="text-sm">
+              {" "}
+              your password -
+              <ul>
+                <li> ● Must have an Uppercase letter in the password</li>
+                <li>● Must have a Lowercase letter in the password</li>
+                <li>● Length must be at least 6 character</li>
+              </ul>
+            </p>
             <Button size="lg" className="mt-5" type="submit" value="Register">
               {/* <Input type="submit" value="" /> */}
-              REgister
+              Register
             </Button>
 
             <Typography color="gray" className="mt-4 text-center font-normal">

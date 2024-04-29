@@ -4,11 +4,14 @@ import { AuthContext } from "../providers/AuthProviders";
 import { Link, NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
-const Navigation = () => {
-  const { user, logOut } = useContext(AuthContext);
-  const [theme, setTheme] = useState();
+
+
+
+const NavMenu = () => {
+     const { user, logOut } = useContext(AuthContext);
+     const [theme, setTheme] = useState();
   return (
-    <div className="navbar bg-base-100">
+  <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,8 +68,8 @@ const Navigation = () => {
             </NavLink>
           </ul>
         </div>
-        <NavLink to='/'>
-        <span className="btn btn-ghost text-xl jost">Wanderlust Voyage</span>
+        <NavLink to="/">
+          <span className="btn btn-ghost text-xl jost">Wanderlust Voyage</span>
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -103,8 +106,7 @@ const Navigation = () => {
           </NavLink>
         </ul>
         <div className="ml-8">
-
-        <ThemeToggle />
+          <ThemeToggle />
         </div>
       </div>
 
@@ -151,7 +153,9 @@ const Navigation = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default NavMenu
+
+

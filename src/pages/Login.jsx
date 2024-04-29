@@ -55,9 +55,9 @@ const Login = () => {
   return (
     <div className="my-5">
       <Card color="transparent" shadow={false}>
-        <div className="w-1/2 mx-auto">
+        <div className="md:w-1/2 mx-4 md:mx-auto">
           <Typography variant="h4" color="blue-gray">
-            Log IN
+            Log In
           </Typography>
           <Typography color="gray" className="mt-1 font-normal">
             Login to access your personalized travel dashboard, saved
@@ -107,7 +107,7 @@ const Login = () => {
           >
             Log In
           </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
+          <Typography color="gray" className="mt-4 mb-4 text-center font-normal">
             Don't have an account?{" "}
             <Link to="/register" className="font-medium text-blue-500">
               Register

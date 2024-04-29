@@ -62,7 +62,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl jost">Wanderlust Voyage</a>
+          <a className="btn btn-ghost text-base md:text-xl jost">Wanderlust Voyage</a>
         </div>
         <div className="div navbar-center hidden lg:flex pop">
           <ul className="menu menu-horizontal px-1">

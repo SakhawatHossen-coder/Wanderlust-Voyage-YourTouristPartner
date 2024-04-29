@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { FaClock, FaEye, FaUserFriends } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
-import { BiCoinStack, BiFlag, BiUser } from "react-icons/bi";
+import { BiCoinStack, BiFlag, BiLocationPlus, BiUser } from "react-icons/bi";
 import { Fade } from "react-awesome-reveal";
 
 const TouristCard = ({ tourist }) => {
@@ -25,12 +25,12 @@ const TouristCard = ({ tourist }) => {
   const defImg =
     "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=600";
   return (
-    <Fade >
-      <Card className="my-5 w-full max-w-[48rem] mx-auto flex-row">
+    <Fade>
+      <Card className="my-5 w-full max-w-[48rem] mx-auto flex-col  justify-center items-center md:justify-start md:items-start md:flex-row">
         <CardHeader
           shadow={false}
           floated={false}
-          className="m-0 w-2/5 shrink-0 rounded-r-none"
+          className="m-0 w-1/2 shrink-0 md:rounded-r-none"
         >
           <img
             key={_id}
@@ -44,35 +44,36 @@ const TouristCard = ({ tourist }) => {
           />
         </CardHeader>
         <CardBody>
-          <Typography variant="h6" color="gray" className="mb-4 uppercase">
-            <div className="flex gap-4 items-center">
+          <Typography variant="small" color="gray" className="mb-4 uppercase">
+            <div className="flex gap-2 justify-center items-center">
               Tourist Spot
-              <FaLocationPin />: {touristSpot}
+              <BiLocationPlus size={40} />: {touristSpot}
             </div>
           </Typography>
-          <Typography variant="h6" color="blue-gray" className="mb-2">
-            <div className="flex gap-4 items-center">
+          <Typography color="blue-gray" className="mb-2">
+            <div className="flex gap-2 items-center">
               Travel Time
               <FaClock />
               {travelTime}
+              days
             </div>
           </Typography>
-          <Typography color="gray" className="mb-8 font-normal">
-            <div className="flex gap-4 items-center">
+          <Typography color="gray" className="mb-2 font-normal">
+            <div className="flex gap-2 items-center">
               Average Cost :
-              <BiCoinStack /> ${averageCost}
+              <BiCoinStack /> {averageCost}
             </div>
           </Typography>
-          <Typography color="gray" className="mb-8 font-normal">
-            <div className="flex gap-4 items-center">
+          <Typography color="gray" className="mb-2 font-normal">
+            <div className="flex gap-2 items-center">
               Total Visitors Per Year
               <FaUserFriends />
               {totalVisitors}
             </div>
           </Typography>
           <Typography color="gray" className="mb-8 font-normal">
-            <div className="flex gap-4 items-center">
-              Seasonality:
+            <div className="flex gap-2 items-center">
+              Seasonality : 
               {season}
             </div>
           </Typography>

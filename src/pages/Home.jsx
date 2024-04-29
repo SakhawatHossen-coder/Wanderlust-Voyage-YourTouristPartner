@@ -30,6 +30,7 @@ const Home = () => {
       <TouristSpots touristData={touristData} />
       <div className="divider"></div>
       <CountrySection />
+      <div className="divider"></div>
       <Newsletter />
       <Faq />
       {/* </ThemeProvider> */}

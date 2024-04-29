@@ -2,10 +2,11 @@ import { Button, Typography } from "@material-tailwind/react";
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [theme,setTheme]=useState()
+  const [theme, setTheme] = useState();
   return (
     <div>
       <div className="navbar justify-between mb-12">
@@ -35,7 +36,8 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div>
-          <input id="toggle" type="checkbox" className="toggle"  />
+          <ThemeToggle />
+          {/* <input id="toggle" type="checkbox" className="toggle"  /> */}
         </div>
         <div className="flex-none">
           {/* <div className="mx-5">

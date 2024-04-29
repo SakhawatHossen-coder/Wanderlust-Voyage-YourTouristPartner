@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// /** @type {import('tailwindcss').Config} */
 // export default {
 // content: [
 // "./index.html",
@@ -9,16 +9,16 @@
 // },
 // plugins: [require("daisyui")],
 // }
-
+/**@type {import('tailwindcss').Config}*/
 const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
-  daisyui: {
-    themes: ["light", "dark"],
-  },
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 });

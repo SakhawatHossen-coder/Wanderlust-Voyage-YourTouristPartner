@@ -13,7 +13,7 @@ const TabularFormData = () => {
     fetch(`http://localhost:5000/tourist/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setItems(data);
       });
   }, [user]);

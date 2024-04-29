@@ -15,13 +15,13 @@ const CountryCard = () => {
   const loadCont = useLoaderData();
   //   console.log(loadCont);
   return (
-    <div className="mx-auto flex flex-col justify-center items-center gap-5">
-      <Typography variant="h2">Your Country Details Here</Typography>
+    <div className="mx-auto my-10 flex flex-col justify-center items-center gap-5">
+      <Typography variant="h2" className="text-lg md:text-3xl">Your Country Details Here</Typography>
       {loadCont.map((i, idx) => (
         <Fade>
-          <Card className="w-full max-w-[48rem] flex-row" key={idx}>
+          <Card className="w-full my-5 max-w-[48rem] flex-row" key={idx}>
             <CardBody>
-              <Typography variant="h6" color="gray" className="mb-4 uppercase">
+              <Typography variant="paragraph" color="gray" className="mb-4 uppercase">
                 <div className="flex gap-4 items-center">
                   Tourist Spot
                   <FaLocationPin />: {i.touristSpot}
@@ -32,12 +32,12 @@ const CountryCard = () => {
                   Location : {i.location}
                 </div>
               </Typography>
-              <Typography variant="paragraph" color="gray" className="mb-4">
+              <Typography variant="paragraph" color="gray" className="mb-2">
                 Description
                 <div className="flex gap-4 items-center">{i.description}</div>
               </Typography>
 
-              <Typography color="gray" className="mb-8 font-normal">
+              <Typography color="gray" className="mb-4 font-normal">
                 <div className="flex gap-4 items-center">
                   Average Cost
                   <BiCoinStack />
@@ -45,7 +45,7 @@ const CountryCard = () => {
                 </div>
               </Typography>
 
-              <Typography color="gray" className="mb-8 font-normal">
+              <Typography color="gray" className="mb-4 font-normal">
                 <div className="flex gap-4 items-center">
                   Seasonality:
                   {i.season}

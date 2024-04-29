@@ -28,8 +28,7 @@ const Slider = () => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+       
       >
         <SwiperSlide>
           <Typography variant="h4" className="hidden lg:flex">

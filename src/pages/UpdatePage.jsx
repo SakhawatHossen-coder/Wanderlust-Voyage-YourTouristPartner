@@ -73,7 +73,7 @@ const UpdatePage = () => {
   };
 
   return (
-    <div>
+    <div className="my-5">
   
       <Card color="transparent" shadow={false}>
         <div className="w-1/2 mx-auto">

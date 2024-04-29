@@ -29,22 +29,22 @@ const ViewDetails = () => {
   return (
     <>
       {/* <h1 className="text-black">{userName}: You have added this</h1> */}
-      <Card className="mt-6 w-1/2 mx-auto shadow-xl">
+      <Card className="my-20 w-full md:w-1/2 mx-auto shadow-xl">
         <CardHeader color="blue-gray" className="relative h-56">
           <img src={image} key={_id} alt="card-image" />
         </CardHeader>
         <CardBody>
           <div className="">
             <Typography
-              variant="h6"
+              variant="paragraph"
               color="blue-gray"
-              className="mb-2 flex gap-2 items-center"
+              className="mb-2 flex gap-2  justify-center items-center"
             >
               Tourist Spot
               <span>
                 <BiLocationPlus />
               </span>
-              {touristSpot}
+              :{touristSpot}
               <br />
             </Typography>
           </div>
@@ -55,33 +55,33 @@ const ViewDetails = () => {
               {travelTime}
             </div>
           </Typography>
-          <Typography color="gray" className="mb-8 font-normal">
+          <Typography color="gray" className="mb-2 font-normal">
             <div className="flex gap-4 items-center">
               Average Cost
               <BiCoinStack />
               {averageCost}
             </div>
           </Typography>
-          <Typography color="gray" className="mb-8 font-normal">
+          <Typography color="gray" className="mb-2 font-normal">
             <div className="flex gap-4 items-center">
               Total Visitors
               <FaUserFriends />
               {totalVisitors}
             </div>
           </Typography>
-          <Typography color="gray" className="mb-8 font-normal">
+          <Typography color="gray" className="mb-2 font-normal">
             <div className="flex gap-4 items-center">
               Seasonality:
               {season}
             </div>
           </Typography>
-          <Typography color="gray" className="mb-8 font-normal">
+          <Typography color="gray" className="mb-2 font-normal">
             <div className="flex gap-4 items-center">
               Location:
               {location}
             </div>
           </Typography>
-          <Typography color="gray" className="mb-8 font-normal">
+          <Typography color="gray" className="mb-2 font-normal">
             <div className="flex gap-4 items-center">
               Country Name:
               {countryName}

@@ -6,6 +6,7 @@ import {
   Checkbox,
   Button,
   Typography,
+  Textarea,
 } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProviders";
@@ -40,7 +41,7 @@ const FormAdd = () => {
       userName,
       season,
     };
-    console.log(formData);
+    // console.log(formData);
     fetch("http://localhost:5000/tourist", {
       method: "POST",
       headers: {
@@ -65,11 +66,18 @@ const FormAdd = () => {
 
   return (
     <Card color="transparent" shadow={false}>
-      <Typography variant="h4" color="blue-gray">
+      <Typography
+        variant="h4"
+        className="md:text-center text-lg md:text-3xl"
+        color="blue-gray"
+      >
         Tell us about the spot
       </Typography>
-      <Typography color="gray" className="mt-1 font-normal">
-        By sharing your favorite spot, you'll help others discover its magic and
+      <Typography
+        color="gray"
+        className="mt-1 text-left md:text-center text-base md:text-lg font-normal"
+      >
+        By sharing your favorite spot, you'll help others discover <br /> its magic and
         contribute to a vibrant travel community!
       </Typography>
       <form
@@ -106,7 +114,8 @@ const FormAdd = () => {
           <Typography variant="h6" color="blue-gray" className="-mb-3">
             Description
           </Typography>
-          <Input
+          <Textarea
+            // label="description"
             size="lg"
             name="description"
             placeholder="description"
@@ -131,6 +140,7 @@ const FormAdd = () => {
             Country Name
           </Typography>
           <select
+            required
             name="countryName"
             className="select select-info w-full max-w-xs"
           >

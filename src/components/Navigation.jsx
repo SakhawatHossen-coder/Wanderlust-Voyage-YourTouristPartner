@@ -66,7 +66,6 @@ const Navigation = () => {
           </ul>
         </div>
         <NavLink to='/'>
-
         <span className="btn btn-ghost text-xl jost">Wanderlust Voyage</span>
         </NavLink>
       </div>

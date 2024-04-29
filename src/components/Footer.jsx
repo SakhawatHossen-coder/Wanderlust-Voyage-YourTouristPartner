@@ -45,8 +45,8 @@ const Footer = () => {
               <ul key={title}>
                 <Typography
                   variant="small"
-                  color="blue-gray"
-                  className="mb-3 font-medium opacity-40"
+                  color="black"
+                  className="mb-3 text-black font-medium opacity-100"
                 >
                   {title}
                 </Typography>
@@ -69,7 +69,7 @@ const Footer = () => {
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
+            className="mb-4 text-center font-normal text-gray-900 md:mb-0"
           >
             &copy; {currentYear}{" "}
             <a href="/" className="jost">

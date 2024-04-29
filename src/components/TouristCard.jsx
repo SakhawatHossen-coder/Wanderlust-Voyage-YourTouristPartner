@@ -26,11 +26,11 @@ const TouristCard = ({ tourist }) => {
     "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=600";
   return (
     <Fade>
-      <Card className="my-5 w-full max-w-[48rem] mx-auto flex-col  justify-center items-center md:justify-start md:items-start md:flex-row">
+      <Card className="my-5 w-full max-w-[48rem] mx-auto flex-col justify-center items-center md:justify-start md:items-start md:flex-row">
         <CardHeader
           shadow={false}
           floated={false}
-          className="m-0 w-1/2 shrink-0 md:rounded-r-none"
+          className="mt-2 w-1/2 shadow-lg shrink-0 md:rounded-r-none"
         >
           <img
             key={_id}

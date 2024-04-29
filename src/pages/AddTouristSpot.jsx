@@ -54,7 +54,7 @@ const AddTouristSpot = () => {
         console.log(data);
         if (data.insertedId) {
           Swal.fire({
-            title: "Successfully Data Added ",
+            title: "Successfully Data Added",
             text: "Do you want to continue",
             icon: "success",
             confirmButtonText: "Ok",

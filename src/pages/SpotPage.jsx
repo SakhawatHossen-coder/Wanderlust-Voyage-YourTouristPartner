@@ -54,11 +54,9 @@ const SpotPage = () => {
               unmount: { y: 25 },
             }}
           >
-            <Option>
-              <button onClick={handleClick}>
-                Sort by Average Cost {isAscending ? "⬆️" : "⬇️"}
-              </button>
-            </Option>
+            <button onClick={handleClick}>
+              <Option>Sort by Average Cost {isAscending ? "⬆️" : "⬇️"} </Option>
+            </button>
           </Select>
         </div>
         {/* <button onClick={handleClick}>

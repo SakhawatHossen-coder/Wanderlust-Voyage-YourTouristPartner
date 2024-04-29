@@ -55,7 +55,7 @@ const FormAdd = () => {
         console.log(data);
         if (data.insertedId) {
           Swal.fire({
-            title: "Successfully Data Added form",
+            title: "Successfully Data Added",
             text: "Do you want to continue",
             icon: "success",
             confirmButtonText: "Ok",
@@ -86,7 +86,7 @@ const FormAdd = () => {
         onSubmit={handleForm}
       >
         <div className="mb-1 flex flex-col gap-6">
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Image
           </Typography>
           <Input
@@ -99,7 +99,7 @@ const FormAdd = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Tourist Spot
           </Typography>
           <Input
@@ -112,7 +112,7 @@ const FormAdd = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Description
           </Typography>
           <Textarea
@@ -126,7 +126,7 @@ const FormAdd = () => {
             }}
           />
 
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Country Name
           </Typography>
           <select
@@ -142,7 +142,7 @@ const FormAdd = () => {
             <option value="Switzerland">Switzerland</option>
           </select>
 
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Location
           </Typography>
           <Input
@@ -155,7 +155,7 @@ const FormAdd = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Average Cost
           </Typography>
           <Input
@@ -169,7 +169,7 @@ const FormAdd = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Travel Time
           </Typography>
           <Input
@@ -182,7 +182,7 @@ const FormAdd = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Total Visitors
           </Typography>
           <Input
@@ -195,7 +195,7 @@ const FormAdd = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             Season
           </Typography>
 
@@ -208,7 +208,7 @@ const FormAdd = () => {
             <option value="Autumn">Autumn</option>
             <option value="LateAutumn">Late Autumn</option>
           </select>
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             User Email
           </Typography>
           <Input
@@ -222,7 +222,7 @@ const FormAdd = () => {
             defaultValue={user?.email}
             disabled
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" color="blue" className="-mb-3">
             User Name
           </Typography>
           <Input

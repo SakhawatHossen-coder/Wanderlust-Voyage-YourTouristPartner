@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 
 export function TouristSpots({ touristData }) {
- 
   return (
     <>
       <div className="md:w-1/2 mx-auto container">
@@ -44,8 +43,8 @@ export function TouristSpots({ touristData }) {
       <div className="grid grid-cols-1 md:grid-cols-2">
         {touristData.slice(0, 6).map((tourist, idx) => (
           <Fade>
-            <Card className="mt-6 w-96 mx-auto my-12" key={idx}>
-              <CardHeader color="blue-gray" className="relative h-56">
+            <Card className="w-96 mx-auto my-4" key={idx}>
+              <CardHeader color="blue-gray" className="relative mt-2 h-56">
                 <img
                   src={
                     tourist?.image ||

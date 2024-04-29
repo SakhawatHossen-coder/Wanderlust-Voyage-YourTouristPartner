@@ -34,7 +34,8 @@ const UpdatePage = () => {
     const description = form.elements.description.value;
     const countryName = form.elements.countryName.value;
     const location = form.elements.location.value;
-    const averageCost = form.elements.averageCost.value;
+    const averageCos = form.elements.averageCost.value;
+    const averageCost = parseInt(averageCos);
     const travelTime = form.elements.travelTime.value;
     const totalVisitors = form.elements.totalVisitors.value;
     const season = form.elements.season.value;
@@ -74,7 +75,6 @@ const UpdatePage = () => {
 
   return (
     <div className="my-5">
-  
       <Card color="transparent" shadow={false}>
         <div className="w-1/2 mx-auto">
           <Typography variant="h4" color="blue-gray">
@@ -129,7 +129,7 @@ const UpdatePage = () => {
               defaultValue={description}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              CountryName
+              Country Name
             </Typography>
             <Input
               size="lg"
@@ -142,9 +142,8 @@ const UpdatePage = () => {
               defaultValue={countryName}
             />
 
-            
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              location
+              Location
             </Typography>
             <Input
               size="lg"
@@ -157,10 +156,11 @@ const UpdatePage = () => {
               defaultValue={location}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              averageCost
+              Average Cost
             </Typography>
             <Input
               size="lg"
+              type="number"
               name="averageCost"
               placeholder="name@mail.com"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -170,10 +170,11 @@ const UpdatePage = () => {
               defaultValue={averageCost}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              travelTime
+              Travel Time
             </Typography>
             <Input
               size="lg"
+              type="number"
               name="travelTime"
               placeholder="name@mail.com"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -183,7 +184,7 @@ const UpdatePage = () => {
               defaultValue={travelTime}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              totalVisitors
+              Total Visitors
             </Typography>
             <Input
               size="lg"

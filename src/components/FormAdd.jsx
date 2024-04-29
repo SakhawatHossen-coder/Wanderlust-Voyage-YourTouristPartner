@@ -21,7 +21,8 @@ const FormAdd = () => {
     const description = form.elements.description.value;
     const countryName = form.elements.countryName.value;
     const location = form.elements.location.value;
-    const averageCost = form.elements.averageCost.value;
+    const averageCos = form.elements.averageCost.value;
+    const averageCost = parseInt(averageCos);
     const travelTime = form.elements.travelTime.value;
     const totalVisitors = form.elements.totalVisitors.value;
     //     const userEmail = form.elements.userEmail.value;
@@ -77,8 +78,8 @@ const FormAdd = () => {
         color="gray"
         className="mt-1 text-left md:text-center text-base md:text-lg font-normal"
       >
-        By sharing your favorite spot, you'll help others discover <br /> its magic and
-        contribute to a vibrant travel community!
+        By sharing your favorite spot, you'll help others discover <br /> its
+        magic and contribute to a vibrant travel community!
       </Typography>
       <form
         className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
@@ -170,6 +171,7 @@ const FormAdd = () => {
           </Typography>
           <Input
             required
+            type="number"
             size="lg"
             name="averageCost"
             placeholder="averageCost"
@@ -182,6 +184,7 @@ const FormAdd = () => {
             Travel Time
           </Typography>
           <Input
+            type="number"
             size="lg"
             name="travelTime"
             placeholder="travelTime"
@@ -194,6 +197,7 @@ const FormAdd = () => {
             Total Visitors
           </Typography>
           <Input
+            type="number"
             size="lg"
             name="totalVisitors"
             placeholder="travelTime"

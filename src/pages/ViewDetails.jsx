@@ -28,9 +28,9 @@ const ViewDetails = () => {
   } = loadedTourists;
   return (
     <>
-      {/* <h1 className="text-black">{userName}: You have added this</h1> */}
+   
       <Card className="my-20 w-full md:w-1/2 mx-auto shadow-xl">
-        <CardHeader color="blue-gray" className="relative h-56">
+        <CardHeader color="blue-gray" className="relative mt-2 h-56">
           <img src={image} key={_id} alt="card-image" />
         </CardHeader>
         <CardBody>

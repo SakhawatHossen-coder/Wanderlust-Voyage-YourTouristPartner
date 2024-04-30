@@ -5,20 +5,13 @@ import TabularFormData from "../components/TabularFormData";
 import { useLoaderData } from "react-router-dom";
 
 const MyListPage = () => {
-  const { user } = useContext(AuthContext);
-  // const loadedData=useLoaderData()
-  // const [items, setItems] = useState(loadedData);
-
-
-  return <div>
-
-    <div className="hidden">
-      <TableData />
-    </div>
+  return (
     <div>
-      <TabularFormData />
+      <div>
+        <TabularFormData />
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default MyListPage;

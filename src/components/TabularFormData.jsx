@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProviders";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { Button } from "@material-tailwind/react";
+import { Button,Table } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 
 const TabularFormData = () => {
@@ -50,55 +50,53 @@ const TabularFormData = () => {
   };
 
   return (
-    <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>Tourist Spot Name</th>
-              <th>Country Name</th>
-              <th>Seasonality</th>
-              <th>Travel Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items?.map((item, idx) => (
-              <tr key={idx}>
-                <th className="hidden">1</th>
-                <td>{item.touristSpot}</td>
-                <td>{item.countryName}</td>
-                <td>{item.season}</td>
-                <td>{item.travelTime}</td>
-                <td>
-                  <Link to={`/tourist/update/${item._id}`}>
-                    <Button
-                      size="sm"
-                      color="green"
-                      className="flex flex-col justify-center items-center gap-2"
-                    >
-                      Update
-                      <FaEdit />
-                    </Button>
-                  </Link>
-                </td>
-                <td>
+    <div className="overflow-x-auto">
+      <table className="table w-full ">
+        {/* head */}
+        <thead className="text-xs">
+          <tr>
+            <th className="p-2">Tourist Spot Name</th>
+            <th className="p-2">Country Name</th>
+            <th className="p-2">Seasonality</th>
+            <th className="p-2">Travel Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items?.map((item, idx) => (
+            <tr key={idx}>
+              <th className="hidden">1</th>
+              <td className="p-2">{item.touristSpot}</td>
+              <td className="p-2">{item.countryName}</td>
+              <td className="p-2">{item.season}</td>
+              <td className="p-2">{item.travelTime}</td>
+              <td>
+                <Link to={`/tourist/update/${item._id}`} className="text-xs">
                   <Button
-                    onClick={() => handleDelete(item._id)}
                     size="sm"
-                    color="red"
-                    className="flex flex-col justify-center items-center gap-2"
+                    color="green"
+                    className="flex text-xs flex-col justify-center items-center gap-2"
                   >
-                    Delete
-                    <FaTrash />
+                    Update
+                    <FaEdit />
                   </Button>
-                </td>
-              </tr>
-            ))}
-            {/* row 1 */}
-          </tbody>
-        </table>
-      </div>
+                </Link>
+              </td>
+              <td>
+                <Button
+                  onClick={() => handleDelete(item._id)}
+                  size="sm"
+                  color="red"
+                  className="flex text-xs flex-col justify-center items-center gap-2"
+                >
+                  Delete
+                  <FaTrash />
+                </Button>
+              </td>
+            </tr>
+          ))}
+          {/* row 1 */}
+        </tbody>
+      </table>
     </div>
   );
 };

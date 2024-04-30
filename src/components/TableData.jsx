@@ -46,7 +46,7 @@ const TableData = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tourist/email/${user?.email}`)
+    fetch(`https://server-side-ass10.vercel.app/tourist/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -57,8 +57,8 @@ const TableData = () => {
   //   const { user } = useContext(AuthContext);
   //   useEffect(() => {
   //     console.log(user?.email);
-  //     //   fetch(`http://localhost:5000/tourist/email/${user?.email}`)
-  //     fetch(`http://localhost:5000/tourist/email/sakhawat32@gmail.com`)
+  //     //   fetch(`https://server-side-ass10.vercel.app/tourist/email/${user?.email}`)
+  //     fetch(`https://server-side-ass10.vercel.app/tourist/email/sakhawat32@gmail.com`)
   //       .then((res) => res.json())
   //       .then((data) => {
   //         setList(data);

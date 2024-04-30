@@ -42,7 +42,7 @@ const AddTouristSpot = () => {
     const newData = { data };
 
     console.log(newData);
-    fetch("http://localhost:5000/tourist", {
+    fetch("https://server-side-ass10.vercel.app/tourist", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -67,7 +67,6 @@ const AddTouristSpot = () => {
     <div className="md:w-1/2 w-full mx-10 my-8 md:mx-auto">
       <FormAdd />
       {/* form */}
-  
     </div>
   );
 };

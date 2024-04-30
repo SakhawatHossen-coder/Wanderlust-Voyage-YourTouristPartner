@@ -43,7 +43,7 @@ const FormAdd = () => {
       season,
     };
     // console.log(formData);
-    fetch("http://localhost:5000/tourist", {
+    fetch("https://server-side-ass10.vercel.app/tourist", {
       method: "POST",
       headers: {
         "content-type": "application/json",

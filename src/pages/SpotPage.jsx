@@ -12,7 +12,9 @@ const SpotPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/tourist"); // Assuming your API endpoint URL
+        const response = await fetch(
+          "https://server-side-ass10.vercel.app/tourist"
+        ); // Assuming your API endpoint URL
         const data = await response.json();
         setTourists(data);
       } catch (error) {

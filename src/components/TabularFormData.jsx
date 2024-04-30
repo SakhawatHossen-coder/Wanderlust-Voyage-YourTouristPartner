@@ -10,7 +10,7 @@ const TabularFormData = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tourist/email/${user?.email}`)
+    fetch(`https://server-side-ass10.vercel.app/tourist/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -30,7 +30,7 @@ const TabularFormData = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tourist/${_id}`, {
+        fetch(`https://server-side-ass10.vercel.app/tourist/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/tourist"),
+        loader: () => fetch("https://server-side-ass10.vercel.app/tourist"),
       },
       {
         path: "/login",
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/alltouristspot",
         element: <SpotPage />,
-        // loader: () => fetch("http://localhost:5000/tourist"),
+        // loader: () => fetch("https://server-side-ass10.vercel.app/tourist"),
       },
       {
         path: "/tourist/:id",
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tourist/${params.id}`),
+          fetch(`https://server-side-ass10.vercel.app/tourist/${params.id}`),
       },
       {
         path: "/mylistpage",
@@ -70,14 +70,14 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tourist/${params.id}`),
+          fetch(`https://server-side-ass10.vercel.app/tourist/${params.id}`),
       },
       {
         path: "/tourist/countries/:countryName",
         element: <CountryCard />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/tourist/countries/${params.countryName}`
+            `https://server-side-ass10.vercel.app/tourist/countries/${params.countryName}`
           ),
       },
     ],

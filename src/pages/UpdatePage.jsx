@@ -51,7 +51,7 @@ const UpdatePage = () => {
       season,
     };
     //
-    fetch(`http://localhost:5000/tourist/${_id}`, {
+    fetch(`https://server-side-ass10.vercel.app/tourist/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

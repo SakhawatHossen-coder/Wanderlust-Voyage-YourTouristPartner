@@ -24,7 +24,7 @@ const Register = () => {
 
   const onSubmit = (data) => {
     const { email, password, photo, name } = data;
-    console.log(data);
+    // console.log(data);
     const validatePassword = (password) => {
       return (
         password.length >= 6 && // Minimum length
@@ -48,7 +48,7 @@ const Register = () => {
       .then((result) => {
         updateUserProfile(name, photo).then(() => {
           const user = result.user;
-          console.log(user);
+          // console.log(user);
           Swal.fire({
             title: "Successfully User Created ",
             text: "Do you want to continue",

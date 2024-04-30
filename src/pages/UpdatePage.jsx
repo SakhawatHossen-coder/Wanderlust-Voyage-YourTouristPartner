@@ -68,7 +68,7 @@ const UpdatePage = () => {
             confirmButtonText: "Ok",
           });
         }
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => console.error(err));
   };

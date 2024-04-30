@@ -28,7 +28,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const { email, password } = data;
-    console.log(data);
+    // console.log(data);
     logIn(email, password)
       .then((result) => {
         if (result.user) {
@@ -38,7 +38,7 @@ const Login = () => {
             icon: "success",
             confirmButtonText: "Ok",
           });
-          console.log(result.user);
+          // console.log(result.user);
           navigate(from);
         }
       })

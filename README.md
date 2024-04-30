@@ -1,4 +1,4 @@
-## Wanderlust Voyage [PLACEHOLDER_LIVE_SITE_URL]
+## Wanderlust Voyage [(https://wanderlust-voyage.netlify.app/)]
 
      [Welcome to the Wanderlust Voyage README!]
 

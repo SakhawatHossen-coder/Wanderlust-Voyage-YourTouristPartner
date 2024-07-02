@@ -4,6 +4,34 @@
 
 This file provides an overview of the Wanderlust Voyage website, a comprehensive travel guide designed to ignite your wanderlust and empower you to explore the world.
 
+### Installation
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/SakhawatHossen-coder/Wanderlust-Voyage-YourTouristPartner.git
+```
+
+2. Install dependencies:
+
+```bash
+cd tourist-management-website
+npm install
+```
+
+3. (Optional) Set up Firebase Authentication (if implemented)
+
+* Create a Firebase project and configure authentication methods.
+* Update the application configuration with your Firebase project credentials.
+
+4. Start the development server:
+
+```bash
+npm start
+```
+
+This will start the development server and open the application in your web browser, typically at http://localhost:3000/.
+
 ##   Features:
 
 

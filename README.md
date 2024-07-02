@@ -59,6 +59,13 @@ Sub-categories (Current):
         Switzerland
 
 Getting Started:
+### Tech Stack
+
+* **Frontend:** React.js
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB
+* **UI Component Libraries:** DaisyUI or Material Tailwind
+* **Authentication (Future Implementation):** Firebase Authentication for secure user access and management (optional)
 
 ##  Packages use in this project:
     1. React-simple-typewriter
